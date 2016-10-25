@@ -1,0 +1,479 @@
+<style type="text/css">
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    padding: 10px 20px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .pic-box{
+    width:110px;
+    height:100px;
+    border:1px solid #ccc;
+    text-align: center;
+    padding-top:30px;
+    color:#ccc;
+    cursor: pointer;
+    margin:0 auto;
+  }
+
+  .date-select{
+    width:192px;
+    margin: 0 auto;
+  }
+
+  .arrow-up{
+    color:#46b8da;
+    cursor: pointer;
+  }
+
+  .arrow-down{
+    color:#46b8da;
+    cursor: pointer;
+  }
+
+  .opt button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .circle-empty{
+    width: 20px;
+    height: 20px;
+    border:1px solid #999;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: white;
+    display:inline-block;
+    vertical-align: bottom;
+    margin-right:4px;
+  }
+
+  .circle-tick{
+    display:inline-block;
+    margin-right:4px;
+    font-size: 22px;
+    vertical-align: sub;
+    color:#7DD2E1;
+  }
+
+  .radio-inline{
+    margin-right:20px;
+  }
+
+  .product-form{
+    display: none;
+    padding-top:20px;
+    /*background-color: white;*/
+  }
+
+</style>
+
+
+<div class="status-ban form-inline">
+
+  <div class="form-group label-select">
+    <label class="control-label">推广位:</label>
+    <select class="form-control" id="location_select">
+      <option value="0">ColumnAD_Home_Left</option>
+      <option value="1">ColumnAD_Home_Top_right</option>
+      <option value="2">ColumnAD_Home_Bottom_right</option>
+      <option value="3">RecommendAD_Home_1</option>
+      <option value="4">RecommendAD_Home_2</option>
+    </select>
+  </div>
+
+</div>
+
+<form id="ad_form">
+  <table class="table product-table">
+    <thead>
+    <tr>
+      <th>上传图片</th>
+      <th>链接地址</th>
+      <th>时间范围</th>
+      <th style="width:20%;">投放地区</th>
+      <th>设为默认</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[0].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[0].url">
+        </td>
+        <td style="padding-top:10px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[0].startDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+          <p style="margin-bottom: 3px;">|</p>
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[0].endDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+        </td>
+
+        <td style="padding-top:40px;">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly name="adList[0].area">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地区 <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="javascript:void(0);">所有地区</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;上海</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;北京</a></li>
+              </ul>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="circle-empty"></div>&nbsp;默认
+          <input type="hidden" name="adList[0].default">
+        </td>
+        <td style="padding-top:40px;">
+          <a href="javascript:void(0);">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[1].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[1].url">
+        </td>
+        <td style="padding-top:10px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[1].startDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+          <p style="margin-bottom: 3px;">|</p>
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[1].endDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+        </td>
+
+        <td style="padding-top:40px;">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly name="adList[1].area">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地区 <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="javascript:void(0);">所有地区</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;上海</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;北京</a></li>
+              </ul>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="circle-tick">
+            <i class="glyphicon glyphicon-ok-circle"></i>
+          </div>&nbsp;默认
+          <input type="hidden" name="adList[1].default">
+        </td>
+        <td style="padding-top:40px;">
+          <a href="javascript:void(0);">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[1].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[2].url">
+        </td>
+        <td style="padding-top:10px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[2].startDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+          <p style="margin-bottom: 3px;">|</p>
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[2].endDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+        </td>
+
+        <td style="padding-top:40px;">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly name="adList[2].area">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地区 <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="javascript:void(0);">所有地区</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;上海</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;北京</a></li>
+              </ul>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="circle-tick">
+            <i class="glyphicon glyphicon-ok-circle"></i>
+          </div>&nbsp;默认
+          <input type="hidden" name="adList[2].default">
+        </td>
+        <td style="padding-top:40px;">
+          <a href="javascript:void(0);">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[3].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[3].url">
+        </td>
+        <td style="padding-top:10px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[3].startDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+          <p style="margin-bottom: 3px;">|</p>
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[3].endDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+        </td>
+
+        <td style="padding-top:40px;">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly name="adList[3].area">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地区 <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="javascript:void(0);">所有地区</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;上海</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;北京</a></li>
+              </ul>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="circle-tick">
+            <i class="glyphicon glyphicon-ok-circle"></i>
+          </div>&nbsp;默认
+          <input type="hidden" name="adList[3].default">
+        </td>
+        <td style="padding-top:40px;">
+          <a href="javascript:void(0);">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[4].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[4].url">
+        </td>
+        <td style="padding-top:10px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[4].startDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+          <p style="margin-bottom: 3px;">|</p>
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[4].endDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+            </div>
+          </div>
+        </td>
+
+        <td style="padding-top:40px;">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly name="adList[4].area">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">地区 <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="javascript:void(0);">所有地区</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;上海</a></li>
+                <li><a href="javascript:void(0);"><input type="checkbox">&nbsp;北京</a></li>
+              </ul>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="circle-tick">
+            <i class="glyphicon glyphicon-ok-circle"></i>
+          </div>&nbsp;默认
+          <input type="hidden" name="adList[4].default">
+        </td>
+        <td style="padding-top:40px;">
+          <a href="javascript:void(0);">删除</a>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</form>
+
+<form class="form-group form-horizontal product-form" role="form" id="product_form">
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;标题
+    </label>
+    <div class="col-xs-3 col-md-3">
+      <input class="form-control" type="text" placeholder="标题" maxlength="30">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">自动推荐</label>
+    <div class="col-xs-3 col-md-3">
+      <select class="form-control">
+        <option value="0">最新发布排序</option>
+        <option value="1">浏览量最高排序</option>
+        <option value="2">销量最高排序</option>
+        <option value="3">价格最低排序</option>
+        <option value="4">收藏量最高排序</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">宝贝数量</label>
+    <div class="col-xs-3 col-md-3">
+      <select class="form-control">
+        <option value="0">2</option>
+        <option value="1">3</option>
+        <option value="2">6</option>
+        <option value="3">8</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">更新频率</label>
+    <div class="col-xs-4 col-md-4">
+      <select class="form-control" style="width:150px;display: inline-block;">
+        <option value="0">2</option>
+        <option value="1">4</option>
+        <option value="2">8</option>
+        <option value="3">12</option>
+        <option value="4">24</option>
+      </select>
+      <span style="font-size: 14px;">&nbsp;&nbsp;小时/次</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">统计期限</label>
+    <div class="col-xs-6 col-md-6">
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" value="option1">近7日
+      </label>
+
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" value="option1">近30日
+      </label>
+
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" value="option1">截止目前累计
+      </label>
+
+    </div>
+  </div>
+
+</form>
+
+<div class="opt text-center">
+  <button type="button" class="btn btn-info">确定</button>
+  <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+</div>
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

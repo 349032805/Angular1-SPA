@@ -1,0 +1,35 @@
+<style type="text/css">
+     .pace-inactive{
+        display:none!important;
+     }
+
+    .pace-progress{
+        display: none!important;
+     }
+     .pace-activity{
+        display: none!important;
+     }
+</style>
+
+
+<div class="back-login animated fadeInDown">
+    <div class="content">
+        <div class="login-form">
+            <h2>
+                <img src="/images/fanyong-logo.png">
+                融易用后台管理系统
+            </h2>
+            <p>欢迎。请登录。</p>
+            <form name="loginForm" class="form" ng-submit="login(admin)" role="form" novalidate>
+                <input type="text" class="form-control" placeholder="Username" ng-model="admin.username" required/>
+                <input type="password" class="form-control" ng-model="admin.password" placeholder="Password" required>
+                <!-- <p id="errorInfo" style="color:red;"></p> -->
+                <p class="help-block text-muted">{{error}}</p>
+                <button type="submit" class="btn btn-block" ng-disabled="loginForm.$invalid">登录</button>
+            </form>
+          <!--   <div style="margin-top:20px;font-size: 12px;letter-spacing: 1px;" class="text-right">
+                还没账号?&nbsp;<a href="#/register">立即注册>></a>
+            </div> -->
+        </div>
+    </div>
+</div>

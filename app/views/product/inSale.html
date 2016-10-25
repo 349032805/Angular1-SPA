@@ -1,0 +1,409 @@
+<style type="text/css">
+
+  .check-condition{
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .form-group{
+    background-color: white;
+  }
+
+  .check-condition .row{
+    padding:10px 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .label-input >*{
+    display: inline-block;
+  }
+
+  .label-input{
+    float:left;
+  }
+
+  .date-select{
+    width:192px;
+  }
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    padding:10px 20px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+  }
+
+  .iphone-logo{
+    display: block;
+    float:left;
+    width:43px;
+    height:80px;
+    margin-left:10px;
+  }
+
+  .product{
+    float:left;
+    margin-left:14px;
+    width:236px;
+    text-align: left;
+  }
+
+  .export-btn{
+    display: block;
+    height:30px;
+    line-height: 30px;
+    padding:0 10px;
+    border:1px solid #ff5e5e;
+    border-radius: 4px;
+    background-color: white;
+    color:#ff5e5e;
+    float:left;
+    margin-right:10px;
+    margin-top:10px;
+  }
+
+  .label-select select{
+    margin-right:10px;
+  }
+
+  .check-box{
+    display: block;
+    float:left;
+  }
+
+  /*模态框样式*/
+
+  .delivery-form{
+    margin-top:20px;
+    width:100%;
+    padding:0 20px;
+  }
+
+  .pic-box{
+    width:110px;
+    height:100px;
+    border:1px solid #ccc;
+    float:left;
+    margin-right:20px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-top:30px;
+    color:#ccc;
+    cursor: pointer;
+  }
+
+  .modal-title{
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+    border-bottom:1px solid #e7e7e7;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .submit-btn{
+    display: block;
+    width:160px;
+    height:36px;
+    border:none;
+    border-radius: 18px;
+    background-color: #7DD2E1;
+    color:white;
+    font-size: 16px;
+    margin:0 auto;
+  }
+
+
+</style>
+
+
+<div class="check-condition form-inline">
+  <div class="row">
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">商户名称</label>
+      <input class="form-control" type="text"  placeholder="输入商户或店铺名称／ID" maxlength="20">
+    </div>
+
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">商品名称</label>
+      <input class="form-control" type="text"  placeholder="商品名称" maxlength="20">
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="form-group col-xs-6 col-md-6">
+      <div class="label-input">
+        <label class="control-label">发布时间:</label>
+        <div class="date-select" id="datetimepicker1">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="startDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+      <span style="float:left;display: block;padding-top:7px;">-</span>
+      <div class="label-input">
+        <div class="date-select" id="datetimepicker2">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="endDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-xs-3 col-md-3">
+      <div class="label-input" style="padding-top:5px;">
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 近一周
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option1"> 近一月
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group col-xs-2 col-md-2">
+      <button type="button" class="btn btn-info pull-right">查询</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="status-ban form-inline">
+  <div class="form-group label-select">
+    <label class="control-label">所属商品类目:</label>
+    <select class="form-control">
+      <option value="0">--一级类目--</option>
+      <option>111111</option>
+      <option>222222</option>
+    </select>
+    <select class="form-control">
+      <option value="0">--二级类目--</option>
+      <option>111111</option>
+      <option>222222</option>
+    </select>
+    <select class="form-control">
+      <option value="0">--三级类目--</option>
+      <option>111111</option>
+      <option>222222</option>
+    </select>
+  </div>
+
+  <div class="pull-right">
+    <button type="button" class="btn btn-info">批量发布</button>
+    <button type="button" class="btn btn-info">下架</button>
+    <button type="button" class="btn btn-info">删除</button>
+  </div>
+</div>
+
+<table class="table refund-table">
+  <thead>
+  <tr>
+    <th style="width:33%;">商品名称</th>
+    <th>价格</th>
+    <th style="width:14%;">所属商户</th>
+    <th>库存</th>
+    <th>销量</th>
+    <th>发布时间</th>
+    <th>状态</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr style="background-color: #F5FBFC;">
+    <td style="padding-top:14px;">
+      <input type="checkbox" class="check-box">
+      <img src="/images/iphone.png" class="iphone-logo">
+      <div class="product">
+        <p>2016年新品发布 iPhoneSE 全网通，办理电信融合套餐0元购机</p>
+          <div style="color:#999999;font-size: 12px;">
+            商品ID: <span>B3801001</span>
+          </div>
+      </div>
+    </td>
+    <td style="padding-top:40px;">4999.00</td>
+    <td style="padding-top:26px;">
+      <p>苹果官网旗舰店</p>
+      <p>（人民广场店）</p>
+    </td>
+    <td style="padding-top:40px;">有货</td>
+    <td style="padding-top:40px;">100</td>
+    <td style="padding-top:40px;">2016/01/01 10:00</td>
+    <td style="padding-top:40px;">出售中</td>
+    <td style="padding-top:40px;">
+        <a href="javascript:void(0);" style="color:#ff5e5e;" ng-click="delivery(0)">编辑</a>
+        &nbsp;&nbsp;<a href="javascript:void(0);" style="color:#5093e1;">下架</a>
+    </td>
+  </tr>
+  </tbody>
+
+  <tbody>
+
+  <tr style="background-color: #F5FBFC;">
+    <td style="padding-top:14px;">
+      <input type="checkbox" class="check-box">
+      <img src="/images/iphone.png" class="iphone-logo">
+      <div class="product">
+        <p>2016年新品发布 iPhoneSE 全网通，办理电信融合套餐0元购机</p>
+        <div style="color:#999999;font-size: 12px;">
+          商品ID: <span>B3801001</span>
+        </div>
+      </div>
+    </td>
+    <td style="padding-top:40px;">4999.00</td>
+    <td style="padding-top:26px;">
+      <p>苹果官网旗舰店</p>
+      <p>（人民广场店）</p>
+    </td>
+    <td style="padding-top:40px;"><span style="color:red;">!</span>&nbsp;无货</td>
+    <td style="padding-top:40px;">100</td>
+    <td style="padding-top:40px;">2016/01/01 10:00</td>
+    <td style="padding-top:40px;">已下架</td>
+    <td style="padding-top:40px;">
+      <a href="javascript:void(0);" style="color:#ff5e5e;" ng-click="delivery(0)">编辑</a>
+      &nbsp;&nbsp;<a href="javascript:void(0);" style="color:#5093e1;">下架</a>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+
+<!--订单发货1-->
+<div class="container">
+  <div class="row">
+    <div id="orderDeliveryDialog1" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:440px; min-height:480px;margin:0 auto;overflow-y: auto;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>订单发货</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <form class="form-group form-horizontal delivery-form" role="form">
+              <div class="form-group">
+                <label class="col-xs-3 col-md-3 control-label">配送方式</label>
+                <div class="col-xs-9 col-md-9">
+                  <select class="form-control">
+                    <option value="0">物流配送-快递配送</option>
+                    <option>111111</option>
+                    <option>222222</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-3 col-md-3 control-label">承运公司</label>
+                <div class="col-xs-9 col-md-9">
+                  <input class="form-control" type="text"  placeholder="承运公司" maxlength="50">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-3 col-md-3 control-label">运单编号</label>
+                <div class="col-xs-9 col-md-9">
+                  <input class="form-control" type="text"  placeholder="运单编号" maxlength="30">
+                </div>
+              </div>
+
+              <p>上传图片</p>
+              <div style="height:100px;margin-bottom: 20px;">
+                <div class="pic-box">
+                  <div><i class="glyphicon glyphicon-plus"></i></div>
+                  <div>物流凭证</div>
+                </div>
+                <div class="pic-box">
+                </div>
+                <div class="pic-box">
+                </div>
+              </div>
+
+              <button type="button" class="submit-btn">确认发货</button>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--订单发货2-->
+<div class="container">
+  <div class="row">
+    <div id="orderDeliveryDialog2" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:450px; height:480px;margin:0 auto;overflow-y: auto;position: relative;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>订单发货</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <form class="form-group form-horizontal delivery-form" role="form">
+              <div class="form-group">
+                <div class="col-xs-3 col-md-3">配送方式</div>
+                <div class="col-xs-9 col-md-9">买家自提</div>
+              </div>
+
+              <p>上传图片</p>
+              <div style="height:100px;margin-bottom: 20px;">
+                <div class="pic-box">
+                  <div><i class="glyphicon glyphicon-plus"></i></div>
+                  <div>物流凭证</div>
+                </div>
+                <div class="pic-box">
+                </div>
+                <div class="pic-box">
+                </div>
+              </div>
+
+              <button type="button" class="submit-btn" style="position: absolute;bottom: 20px;left:150px;">确认发货</button>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

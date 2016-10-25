@@ -1,0 +1,354 @@
+<style type="text/css">
+
+  .check-condition{
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .form-group{
+    background-color: white;
+  }
+
+  .check-condition .row{
+    padding:10px 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .label-input >*{
+    display: inline-block;
+  }
+
+  .label-input{
+    float:left;
+  }
+
+  .date-select{
+    width:192px;
+  }
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    padding-right:20px;
+    padding-top:10px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .modal-title{
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+    border-bottom:1px solid #e7e7e7;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .message-template-form{
+    padding-right:20px;
+  }
+
+  .message-template-form .col-md-8{
+    font-size: 14px;
+  }
+  .add-message-template-form .col-md-8{
+    font-size: 14px;
+  }
+
+  .add-message-template-form .form-group{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .opt button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .opt-column{
+    width:100%;
+    height:36px;
+    line-height: 36px;
+    background-color: #e7e7e7;
+    position: relative;
+  }
+
+  .config-param{
+    float:left;
+    width:40%;
+    height:100%;
+    border-right:1px solid #999;
+    padding:0 10px;
+  }
+
+  .word-count{
+    width:60%;
+    height:100%;
+    float:left;
+    text-align: right;
+    padding-right:10px;
+  }
+
+  .param-select{
+    width:180px;
+    height:auto;
+    position: absolute;
+    left:0;
+    top:37px;
+    z-index: 100;
+  }
+
+  .param-select li{
+    background-color: #ccc;
+    padding-left:10px;
+    line-height: 30px;
+    cursor: pointer;
+  }
+
+  .param-select li:hover{
+    background-color: #5bc0de;
+    color:white;
+  }
+
+</style>
+
+
+<div class="check-condition form-inline">
+  <div class="row">
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">模板名称</label>
+      <input class="form-control" type="text"  placeholder="模板名称" maxlength="20">
+    </div>
+
+    <div class="form-group col-xs-6 col-md-6">
+      <div class="label-input">
+        <label class="control-label">创建时间:</label>
+        <div class="date-select" id="datetimepicker1">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="startDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+      <span style="float:left;display: block;padding-top:7px;">-</span>
+      <div class="label-input">
+        <div class="date-select" id="datetimepicker2">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="endDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-xs-2 col-md-2">
+      <button type="button" class="btn btn-info">查询</button>
+    </div>
+  </div>
+</div>
+
+<div class="status-ban">
+  <div class="pull-right">
+    <button type="button" class="btn btn-info" ng-click="addTemplate()">新增模板</button>
+  </div>
+</div>
+
+<table class="table table-hover supplier-table">
+  <thead>
+  <tr>
+    <th>模板ID</th>
+    <th>模板名称</th>
+    <th>创建时间</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr ng-click="detail()">
+      <td>MSG000002</td>
+      <td>节假日促销活动</td>
+      <td>2016/01/01 10:00</td>
+      <td>
+        <a href="javascript:void(0);">详情</a>&nbsp;&nbsp;
+        <a href="javascript:void(0);" class="edit">编辑</a>&nbsp;&nbsp;
+        <a href="javascript:void(0);" class="del">删除</a>
+      </td>
+    </tr>
+    <tr ng-click="detail()">
+      <td>MSG000002</td>
+      <td>节假日促销活动</td>
+      <td>2016/01/01 10:00</td>
+      <td>
+        <a href="javascript:void(0);">详情</a>&nbsp;&nbsp;
+        <a href="javascript:void(0);" class="edit">编辑</a>&nbsp;&nbsp;
+        <a href="javascript:void(0);" class="del">删除</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--消息模板详细-->
+<div class="container">
+  <div class="row">
+    <div id="messageTemplateDetailDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:480px; min-height:380px;margin:0 auto;overflow-y: auto;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>消息模板详细</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <form class="form-group form-horizontal message-template-form" role="form" style="margin-top:20px;">
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4 text-right">消息模板ID</label>
+                <div class="col-xs-8 col-md-8">MSG000001</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4 text-right">消息模板名称</label>
+                <div class="col-xs-8 col-md-8">短信验证码</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4 text-right">消息模板内容</label>
+                <div class="col-xs-8 col-md-8">
+                  手机尾号为${Nomber}的短信验证码为：${Code},本次操作仅做为注册融易用帐号，请勿告知他人，30分钟内有效
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4 text-right">备注</label>
+                <div class="col-xs-8 col-md-8">
+                  aaaaaa
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--新增消息模板-->
+<div class="container">
+  <div class="row">
+    <div id="addMessageTemplateDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:560px; min-height:480px;margin:0 auto;overflow-y: auto;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>新增消息模板</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <form class="form-group form-horizontal add-message-template-form" role="form" style="margin-top:20px;">
+              <div class="form-group">
+                <label class="col-xs-3 col-md-3 text-right">模板ID</label>
+                <div class="col-xs-8 col-md-8">MSG000001</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-3 col-md-3 control-label">
+                  <span class="required">*</span>&nbsp;模板名称
+                </label>
+                <div class="col-xs-8 col-md-8">
+                    <input class="form-control" type="text" placeholder="消息模板名称" maxlength="20" style="width:240px;">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-3 col-md-3 control-label">
+                  <span class="required">*</span>&nbsp;模板内容
+                </label>
+                <div class="col-xs-8 col-md-8">
+                    <textarea class="form-control" rows="5" maxlength="350" placeholder="请输入消息内容!" id="template_content"></textarea>
+                    <div class="opt-column">
+                      <div class="config-param">
+                        <i class="glyphicon glyphicon-cog"></i>&nbsp;插入参数&nbsp;&nbsp;
+                        <i class="glyphicon glyphicon-chevron-down" style="color:#31b0d5;"></i>
+                      </div>
+                      <div class="word-count">已输入&nbsp;<span id="word_num">1</span>/350字</div>
+                      <ul class="param-select">
+                        <li data-code="${code}">${code}&nbsp;&nbsp;验证码</li>
+                        <li data-code="${name}">${name}&nbsp;&nbsp;真实姓名</li>
+                        <li data-code="${date}">${date}&nbsp;&nbsp;日期</li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-3 col-md-3 control-label">
+                  <span class="required">*</span>&nbsp;备注
+                </label>
+                <div class="col-xs-8 col-md-8">
+                  <textarea class="form-control" rows="4" maxlength="350" placeholder=""></textarea>
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="opt text-center">
+                    <button type="button" class="btn btn-info">确定</button>
+                    <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;" data-dismiss="modal">取消</button>
+                  </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

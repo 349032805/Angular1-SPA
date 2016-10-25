@@ -1,0 +1,270 @@
+<style type="text/css">
+
+  .check-condition{
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .form-group{
+    background-color: white;
+  }
+
+  .check-condition .row{
+    padding:10px 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .label-input >*{
+    display: inline-block;
+  }
+
+  .label-input{
+    float:left;
+  }
+
+  .date-select{
+    width:192px;
+  }
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    padding-right:20px;
+    padding-top:10px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .message-content{
+    width:120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .modal-title{
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+    border-bottom:1px solid #e7e7e7;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .close-icon{
+    position: absolute;
+    top:10px;
+    right:10px;
+    width:24px;
+    height:24px;
+    cursor: pointer;
+  }
+
+  .message-detail{
+    padding:20px;
+  }
+
+  .message-detail p{
+    font-size: 14px;
+  }
+
+  .ok-sign{
+    color:#46b8da;
+  }
+  .fail-sign{
+    color:#ff5e5e;
+  }
+
+</style>
+
+
+<div class="check-condition form-inline">
+  <div class="row">
+    <div class="form-group col-xs-6 col-md-6">
+      <label class="control-label">消息类型</label>
+      <select class="form-control" style="width:200px;">
+        <option value="0">平台活动</option>
+        <option value="0">通知消息</option>
+        <option value="0">交易消息</option>
+        <option value="0">提醒消息</option>
+        <option value="0">物流消息</option>
+        <option value="0">其他</option>
+      </select>
+    </div>
+
+    <div class="form-group col-xs-6 col-md-6">
+      <label class="control-label">消息内容</label>
+      <input class="form-control" type="text"  placeholder="输入消息内容" maxlength="20">
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="form-group col-xs-6 col-md-6">
+      <div class="label-input">
+        <label class="control-label">创建时间:</label>
+        <div class="date-select" id="datetimepicker1">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="startDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+      <span style="float:left;display: block;padding-top:7px;">-</span>
+      <div class="label-input">
+        <div class="date-select" id="datetimepicker2">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="endDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-xs-6 col-md-6">
+      <button type="button" class="btn btn-info pull-right">查询</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="status-ban">
+  <div class="pull-right">
+    <a href="/#/message/send">
+      <button type="button" class="btn btn-info">新增用户权限</button>
+    </a>
+  </div>
+</div>
+
+<table class="table table-hover message-table">
+  <thead>
+  <tr>
+    <th>消息ID</th>
+    <th>消息类型</th>
+    <th>接收对象</th>
+    <th>平台消息</th>
+    <th>短信</th>
+    <th>微信</th>
+    <th>发送时间</th>
+    <th>发送状态</th>
+    <th>消息内容</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr ng-click="detail()">
+      <td>M16000001</td>
+      <td>平台活动</td>
+      <td>商户管理员,店长</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td>2016-06-28 10:00</td>
+      <td>全部成功</td>
+      <td>
+        <div class="message-content">您的短信验证码为：${Code},本次操作仅做</div>
+      </td>
+    </tr>
+    <tr ng-click="detail()">
+      <td>M16000001</td>
+      <td>平台活动</td>
+      <td>商户管理员,店长</td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="checkbox"></td>
+      <td>2016-06-28 10:00</td>
+      <td>全部成功</td>
+      <td>
+        <div class="message-content">您的短信验证码为：${Code},本次操作仅做</div>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="detailDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:480px; min-height:480px;margin:0 auto;overflow-y: auto;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>消息详情</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="message-detail">
+              <div style="margin-bottom: 10px;">
+                平台活动:&nbsp;&nbsp;<span style="font-size:14px;color:#999;">(ID: MSG000001)</span>
+              </div>
+              <p>接收对象: 所有会员，非会员</p>
+              <p>发送时间：2016－06-18 10:00:12</p>
+              <p>手机尾号为${Nomber}的短信验证码为：${Code},本次操作仅做为注册融易用帐号，请勿告知他人，30分钟内有效。</p>
+            </div>
+
+            <div style="padding:0 20px;">
+              <hr style="border-style: dashed;border-color: #ccc;margin-top:0;">
+            </div>
+
+            <div style="padding:0 20px;">
+              <p>发送结果</p>
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td style="width:24%;">平台消息</td>
+                    <td style="text-align: left;">
+                      <i class="glyphicon glyphicon-ok-sign ok-sign"></i>&nbsp;&nbsp;发送成功
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>短信</td>
+                    <td style="text-align: left;">
+                      <i class="glyphicon glyphicon-remove-sign fail-sign"></i>&nbsp;&nbsp;发送失败
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>微信</td>
+                    <td style="text-align: left;">
+                      <i class="glyphicon glyphicon-ok-sign ok-sign"></i>&nbsp;&nbsp;发送成功
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

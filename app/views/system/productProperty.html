@@ -1,0 +1,156 @@
+<style type="text/css">
+
+  .check-condition{
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .form-group{
+    background-color: white;
+  }
+
+  .check-condition .row{
+    padding:10px 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .tabs{
+    padding: 0 20px;
+    width:100%;
+    height:44px;
+    margin-top:20px;
+    margin-bottom: 10px;
+  }
+
+</style>
+
+
+<div class="check-condition form-inline">
+  <div class="row">
+    <div class="form-group col-xs-8 col-md-8">
+      <label class="control-label">商户名称</label>
+        <select class="form-control">
+          <option value="0">--一级类目--</option>
+          <option>111111</option>
+          <option>222222</option>
+        </select>
+        <select class="form-control">
+          <option value="0">--二级类目--</option>
+          <option>111111</option>
+          <option>222222</option>
+        </select>
+        <select class="form-control">
+          <option value="0">--三级类目--</option>
+          <option>111111</option>
+          <option>222222</option>
+        </select>
+    </div>
+
+    <div class="form-group col-xs-4 col-md-4 text-right">
+      <button type="button" class="btn btn-info">查询</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="tabs">
+  <ul class="nav nav-tabs" style="float:left;">
+    <li role="presentation"><a href="javascript:void(0);">参数规格</a></li>
+    <li role="presentation" class="active"><a href="javascript:void(0);">销售属性</a></li>
+    <li role="presentation"><a href="javascript:void(0);">搜索标签</a></li>
+  </ul>
+
+  <div class="pull-right">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-info">
+        <i class="glyphicon glyphicon-arrow-up"></i>上移
+      </button>
+      <button type="button" class="btn btn-info">
+        <i class="glyphicon glyphicon-arrow-down"></i>下移
+      </button>
+    </div>
+
+    <a href="/#/system/addProductProperty" class="btn btn-info">新增属性</a>
+    <button type="button" class="btn btn-info">删除</button>
+    <button type="button" class="btn btn-info">批量导入</button>
+
+  </div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>属性ID</th>
+    <th>属性名称</th>
+    <th>属性值</th>
+    <th>创建时间</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>颜色</td>
+      <td>黑色,白色,玫瑰金,土豪金</td>
+      <td>2016/01/01 10:00</td>
+      <td>
+        <a href="#">编辑</a>&nbsp;&nbsp;
+        <a href="javascript:void(0);" class="del">删除</a>&nbsp;&nbsp;
+        <a href="#">设为搜索标签</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>颜色</td>
+      <td>黑色,白色,玫瑰金,土豪金</td>
+      <td>2016/01/01 10:00</td>
+      <td>
+        <a href="#">编辑</a>&nbsp;&nbsp;
+        <a href="javascript:void(0);" class="del">删除</a>&nbsp;&nbsp;
+        <a href="#">设为搜索标签</a>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

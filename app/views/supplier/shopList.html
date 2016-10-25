@@ -1,0 +1,161 @@
+<style type="text/css">
+
+  .check-condition{
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .form-group{
+    background-color: white;
+  }
+
+  .check-condition .row{
+    padding:10px 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .label-input >*{
+    display: inline-block;
+  }
+
+  .label-input{
+    float:left;
+  }
+
+  .date-select{
+    width:192px;
+  }
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    line-height: 50px;
+    padding-left:20px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+</style>
+
+
+<div class="check-condition form-inline">
+  <div class="row">
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">店铺名称</label>
+      <input class="form-control" type="text"  placeholder="输入店铺名称" maxlength="20">
+    </div>
+
+    <div class="form-group col-xs-6 col-md-6">
+      <div class="label-input">
+        <label class="control-label">创建时间:</label>
+        <div class="date-select" id="datetimepicker1">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="startDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+      <span style="float:left;display: block;padding-top:7px;">-</span>
+      <div class="label-input">
+        <div class="date-select" id="datetimepicker2">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="endDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-xs-2 col-md-2">
+      <button type="button" class="btn btn-info">查询</button>
+    </div>
+  </div>
+</div>
+
+<div class="status-ban form-inline">
+  <div class="form-group label-select">
+    <label class="control-label">交易状态:</label>
+    <select class="form-control">
+      <option value="0">全部</option>
+      <option>111111</option>
+      <option>222222</option>
+    </select>
+  </div>
+
+  <div class="pull-right">
+    <a href="#/shop/add">
+      <button type="button" class="btn btn-info">新增门店</button>
+    </a>
+    <button type="button" class="btn btn-info">删除门店</button>
+  </div>
+</div>
+
+<table class="table table-hover supplier-table">
+  <thead>
+  <tr>
+    <th>店铺ID</th>
+    <th>店铺名称</th>
+    <th>店铺属性</th>
+    <th>店铺地址</th>
+    <th>创建时间</th>
+    <th>状态</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-click="detail()">
+    <td><input type="checkbox">&nbsp;&nbsp;S0001</td>
+    <td>苹果官方旗舰店</td>
+    <td>线上店铺</td>
+    <td>--</td>
+    <td>2016/01/01 10:00</td>
+    <td>正常</td>
+    <td>
+      <a href="#">编辑</a>&nbsp;&nbsp;
+      <a href="javascript:void(0);" class="del">删除</a>&nbsp;&nbsp;
+      <a href="#">冻结</a>&nbsp;&nbsp;
+      <a href="#">添加门店</a>
+    </td>
+  </tr>
+
+  </tbody>
+
+</table>
+
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

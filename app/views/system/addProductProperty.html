@@ -1,0 +1,143 @@
+<style type="text/css">
+  .opt button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .class-select select{
+    width:160px;
+    float:left;
+    margin-right:10px;
+  }
+
+  .property-value{
+    width:350px;
+    height:300px;
+    border:1px solid #ccc;
+    background-color: white;
+  }
+
+  .add-box{
+    width:100%;
+    height:54px;
+    background-color: #e7e7e7;
+    padding:10px;
+    overflow-y: auto;
+  }
+  .add-box button{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .property-table td{
+    padding-left:20px!important;
+    padding-right: 20px !important;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+  }
+</style>
+
+<form class="form-group form-horizontal" role="form">
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 text-right">属性ID</label>
+    <div class="col-xs-4 col-md-4">S00001</div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;关联商品类目
+    </label>
+    <div class="col-xs-8 col-md-8">
+      <div class="class-select">
+        <select class="form-control">
+          <option value="0">--一级类目--</option>
+          <option>111111</option>
+          <option>222222</option>
+        </select>
+        <select class="form-control">
+          <option value="0">--二级类目--</option>
+          <option>111111</option>
+          <option>222222</option>
+        </select>
+        <select class="form-control">
+          <option value="0">--三级类目--</option>
+          <option>111111</option>
+          <option>222222</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 text-right">所属分组</label>
+    <div class="col-xs-4 col-md-4">销售属性</div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;属性名称
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <input class="form-control" type="text" placeholder="属性名称" maxlength="10">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;属性值
+    </label>
+    <div class="col-xs-8 col-md-8">
+      <div class="property-value">
+        <div class="add-box">
+          <input type="text" class="form-control" style="width:220px;display: inline-block;">
+          &nbsp;&nbsp;<button type="button" class="btn btn-info btn-sm">添&nbsp;&nbsp;加</button>
+        </div>
+        <table class="table property-table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="pull-left">苹果</div>
+                <div class="pull-right">
+                  <i class="glyphicon glyphicon-remove" style="color:#ff5e5e;"></i>&nbsp;&nbsp;
+                  <i class="glyphicon glyphicon-arrow-up" style="color:#5bc0de;"></i>&nbsp;&nbsp;
+                  <i class="glyphicon glyphicon-arrow-down" style="color:#5bc0de;"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="pull-left">香蕉</div>
+                <div class="pull-right">
+                  <i class="glyphicon glyphicon-remove" style="color:#ff5e5e;"></i>&nbsp;&nbsp;
+                  <i class="glyphicon glyphicon-arrow-up" style="color:#5bc0de;"></i>&nbsp;&nbsp;
+                  <i class="glyphicon glyphicon-arrow-down" style="color:#5bc0de;"></i>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="pull-left">桔子</div>
+                <div class="pull-right">
+                  <i class="glyphicon glyphicon-remove" style="color:#ff5e5e;"></i>&nbsp;&nbsp;
+                  <i class="glyphicon glyphicon-arrow-up" style="color:#5bc0de;"></i>&nbsp;&nbsp;
+                  <i class="glyphicon glyphicon-arrow-down" style="color:#5bc0de;"></i>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="form-group" style="margin-top:30px;">
+    <div style="padding-left:250px;" class="opt">
+      <button type="button" class="btn btn-info">确定</button>
+      <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+    </div>
+  </div>
+
+</form>

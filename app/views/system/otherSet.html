@@ -1,0 +1,341 @@
+<style type="text/css">
+
+  .other-set-tab{
+    padding:0 20px;
+    width:100%;
+    height:44px;
+    margin-bottom: 5px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .table-tip{
+    font-size: 14px;
+    color:#999;
+    padding-left:20px;
+  }
+
+  .block-title{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: #e7e7e7;
+    padding:0 20px;
+  }
+
+  .block-content{
+    padding:10px 20px;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .opt button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .can-edit{
+    width:100%;
+    height:36px;
+    line-height: 36px;
+    border:1px solid #5bc0de;
+  }
+
+</style>
+
+<div class="other-set-tab">
+  <ul class="nav nav-tabs" style="float:left;">
+    <li role="presentation" class="active" id="tab1"><a href="javascript:void(0);">分期支付设置</a></li>
+    <li role="presentation" id="tab2"><a href="javascript:void(0);">资金结算设置</a></li>
+    <li role="presentation" id="tab3"><a href="javascript:void(0);">审核拒绝原因</a></li>
+    <li role="presentation" id="tab4"><a href="javascript:void(0);">服务标签设置</a></li>
+  </ul>
+
+  <div class="pull-right">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-info">
+        <i class="glyphicon glyphicon-arrow-up"></i>上移
+      </button>
+      <button type="button" class="btn btn-info">
+        <i class="glyphicon glyphicon-arrow-down"></i>下移
+      </button>
+    </div>
+
+    <button type="button" class="btn btn-info" ng-click="addPay()">添加分期</button>
+    <button type="button" class="btn btn-info" ng-click="addReason()">添加原因</button>
+    <button type="button" class="btn btn-info" ng-click="batchDelReasons()">删除</button>
+  </div>
+
+</div>
+
+<!--分期支付设置-->
+<div id="tab1_content" class="tab-content">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>期数</th>
+      <th>服务费率</th>
+      <th>逾期违约率</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="pay_table">
+        <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>0.05%</td>
+          <td>
+            <a href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+            <a href="javascript:void(0);">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>0.60%</td>
+          <td>0.05%</td>
+          <td>
+            <a href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+            <a href="javascript:void(0);">删除</a>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>0.60%</td>
+          <td>0.05%</td>
+          <td>
+            <a href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+            <a href="javascript:void(0);">删除</a>
+          </td>
+        </tr>
+    </tbody>
+
+  </table>
+
+  <div class="table-tip">备注：最多添加记录20条。</div>
+</div>
+
+<!--资金结算设置-->
+<div style="background-color: white;display: none;" class="tab-content" id="tab2_content">
+  <div class="block-title">应收账款 － To：买家</div>
+  <div class="block-content">
+      <div class="row">
+        <div class="col-xs-2 col-md-2 text-right">
+          <span style="font-size: 16px;">账单日</span>
+        </div>
+        <div class="col-xs-4 col-md-4">
+          每月&nbsp;&nbsp;
+          <select class="form-control input-sm" style="width:60px;display: inline-block;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+          </select>
+          &nbsp;&nbsp;日
+
+        </div>
+      </div>
+    <div class="row" style="margin-top:10px;">
+      <label class="col-xs-2 col-md-2 text-right">
+        <span style="font-size: 16px;">最后还款日</span>
+      </label>
+      <div class="col-xs-4 col-md-4">
+        每月&nbsp;&nbsp;
+        <select class="form-control input-sm" style="width:60px;display: inline-block;">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+          <option value="31">31</option>
+        </select>
+        &nbsp;&nbsp;日
+      </div>
+    </div>
+
+    <div class="row"  style="margin-top:10px;">
+      <div class="col-xs-5 col-md-5 text-center">PS：若本月所选日期不存在，自动后延至下一日</div>
+    </div>
+
+    <div class="row"  style="margin-top:30px;">
+      <div class="opt text-center">
+        <button type="button" class="btn btn-info">确定</button>
+        <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--审核拒绝原因-->
+<div id="tab3_content" class="tab-content" style="display: none;">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>原因ID</th>
+      <th>原因描述</th>
+      <th>创建时间</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="reason_table">
+      <tr>
+        <td>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="option1">RSN001
+          </label>
+        </td>
+        <td>照片不清晰</td>
+        <td>2016/01/01 10:00</td>
+        <td>
+          <a href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+          <a href="javascript:void(0);">删除</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="option1">RSN001
+          </label>
+        </td>
+        <td>照片不清晰</td>
+        <td>2016/01/01 10:00</td>
+        <td>
+          <a href="javascript:void(0);">编辑</a>&nbsp;&nbsp;
+          <a href="javascript:void(0);">删除</a>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="table-tip">备注：最多添加记录100条。</div>
+</div>
+
+<div id="tab4_content" class="tab-content" style="display: none;">
+  <div style="padding-left:40px;">暂无内容</div>
+</div>
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!--添加分期支付的模板-->
+      <table id="add_period_pay_template">
+        <tr>
+          <td style="padding:5px;">
+            <div contenteditable="true" class="can-edit"></div>
+          </td>
+          <td style="padding:5px;">
+            <div contenteditable="true" class="can-edit"></div>
+          </td>
+          <td style="padding:5px;">
+            <div contenteditable="true" class="can-edit"></div>
+          </td>
+          <td>
+            <button type="button" class="btn btn-info btn-sm">保存</button>
+          </td>
+        </tr>
+      </table>
+
+      <!--添加原因的模板-->
+      <table id="add_reason_template">
+        <tr>
+          <td>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">RSN001
+            </label>
+          </td>
+          <td style="padding:5px;">
+            <div contenteditable="true" class="can-edit"></div>
+          </td>
+          <td>2016/01/01 10:00</td>
+          <td>
+            <button type="button" class="btn btn-info btn-sm">保存</button>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+

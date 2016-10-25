@@ -1,0 +1,223 @@
+<style type="text/css">
+  .contract{
+    width:100%;
+    background-color: white;
+    padding:20px 60px;
+  }
+
+  .contract p{
+    line-height: 24px;
+    margin-bottom: 0;
+  }
+
+  .contract-theme{
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .contract-title{
+    font-size: 14px;
+    color:#333;
+    margin-top:16px;
+    margin-bottom: 10px;
+  }
+
+  .contract-content{
+    font-size: 12px;
+    color:#666;
+  }
+  .contract-key{
+    font-size: 14px;
+    color:#333;
+    text-decoration: underline;
+  }
+
+  .value-line{
+    width:140px;
+    border-bottom: 1px solid #000;
+    display: inline-flex;
+    margin-left:5px;
+  }
+
+  .contract-table{
+    width:100%;
+  }
+
+  .contract-table td{
+    border:1px solid #ccc;
+    height:24px;
+    line-height: 24px;
+  }
+
+  .left-fill-table td{
+    text-align: left;
+    padding-left:10px;
+  }
+
+  .sign-box{
+    width:100%;
+    border:1px solid #ccc;
+    padding:10px;
+  }
+</style>
+
+<div class="contract">
+  <div class="contract-theme">分期消费协议</div>
+  <div class="contract-title" style="margin-top:40px;">编号:<div class="value-line"></div></div>
+  <div class="contract-title" style="margin-top:20px;">乙方信息</div>
+  <table class="contract-content contract-table left-fill-table">
+    <tbody>
+        <tr>
+          <td style="width:20%;">姓名</td>
+          <td style="width:30%;"></td>
+          <td style="width:20%;">身份证号</td>
+          <td style="width:30%;"></td>
+        </tr>
+        <tr>
+          <td>手机号码</td>
+          <td></td>
+          <td>工作单位</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>婚姻状况</td>
+          <td></td>
+          <td>教育程度</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>现居住地址</td>
+          <td colspan="3"></td>
+        </tr>
+    </tbody>
+  </table>
+  <table class="contract-content contract-table left-fill-table">
+    <tbody>
+      <tr>
+        <td style="width:24%;border-top:none;">银行帐户信息(申请人所属卡)</td>
+        <td style="width:39%;border-top:none;">开户行:</td>
+        <td style="width:39%;border-top:none;">账号:</td>
+      </tr>
+      <tr>
+        <td>紧急联系人姓名及联系方式</td>
+        <td>一</td>
+        <td>二</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="contract-title">商品信息</div>
+  <table class="contract-content contract-table">
+    <tbody>
+      <tr>
+        <td style="width:6%;">序号</td>
+        <td style="width:23%;">产品名称</td>
+        <td style="width:23%;">产品型号</td>
+        <td style="width:12%;">单位</td>
+        <td style="width:12%;">数量</td>
+        <td style="width:12%;">单价(元)</td>
+        <td style="width:12%;">价格(元)</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="contract-content contract-table left-fill-table">
+    <tbody>
+      <tr>
+        <td style="width:20%;border-top:none;">收货人及联系方式</td>
+        <td style="width:30%;border-top:none;"></td>
+        <td style="width:20%;border-top:none;">经销商名称</td>
+        <td style="width:30%;border-top:none;"></td>
+      </tr>
+      <tr>
+        <td>收货地址</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td>安装地址</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td class="contract-key" colspan="4">甲乙双方一致同意，本协议项下商品的交付、售后服务由该经销商负责，由乙方与该经销商协商，与甲方无关。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="contract-title">分期还款信息</div>
+  <table class="contract-content contract-table">
+    <tbody>
+      <tr>
+        <td style="width:16.6%;">商品总价(元)</td>
+        <td style="width:16.6%;">首付款(元)</td>
+        <td style="width:16.6%;">服务费(元)</td>
+        <td style="width:16.6%;">分期金额(元)</td>
+        <td style="width:16.6%;">分期期数(期)</td>
+        <td style="width:17%;">每期还款(元)</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="6" style="text-align: left;padding-left:10px;">
+          <div>说明:</div>
+          <p>还款周期：还款总周期为上述“分期期数”，自订单签收日次月起，每月15日还款。</p>
+          <p>服务费： 服务费=（产品总价格-首付款）*0.01*分期期数（月）；一次性支付，不退还。</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="contract-title">合同签署</div>
+  <div class="contract-content sign-box">
+    <p>乙方本人知晓并同意按照本合同约定按时向甲方支付各笔款项，并按如下优先顺序选择还款方式，按时足额甲方还款</p>
+    <p>1．银行代扣还款：乙方同意签署《银行代扣授权书》并授权甲方对扣款账户进行扣款；</p>
+    <p>2．银行转账还款：包括网上银行，电话银行，自助服务端机和柜台等向甲方指定收款账户转账；</p>
+    <p>3．向甲方官方微信公众号还款：乙方可以通过上海凡用信息科技有限公司官方微信公众号“融易用”还款。</p>
+    <p>凡用收款账户：</p>
+    <p class="contract-key">账户名称：上海凡用信息科技有限公司；银行账号：11015106908503；开户行名称：平安银行上海市北支行</p>
+    <hr>
+    <p>1．乙方承诺：1）本协议中乙方的个人信息、收货地址信息均真实、无误；2）本协议项下商品的交付、售后服务由该经销商负责，由乙方与该经销商协商，与甲方无关；3）本人意见仔细阅读并充分理解本合同全部内容（含一般条款），会严格遵守协议各项约定。</p>
+    <p>2．双方均准确理解、一致同意本协议约定的各项内容，愿意履行协议约定的各项责任与义务。</p>
+
+    <div style="margin-top:30px;padding-right:60px;height:30px;">
+      <div style="float:left;">
+        甲方:<div class="value-line" style="padding-left:5px;width:auto;">上海凡用信息科技有限公司&nbsp;&nbsp;(盖章)</div>
+      </div>
+      <div style="float:right;">
+        乙方&nbsp;&nbsp;(亲笔签名):<div class="value-line"></div>
+      </div>
+    </div>
+
+    <div style="margin-top:10px;padding-right:60px;height:30px;">
+      <div style="float:right;">
+        <div class="value-line" style="width:60px;"></div>年
+        <div class="value-line" style="width:60px;"></div>月
+        <div class="value-line" style="width:60px;"></div>日
+      </div>
+    </div>
+
+  </div>
+
+</div>

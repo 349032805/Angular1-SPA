@@ -1,0 +1,384 @@
+<style type="text/css">
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    padding: 10px 20px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .pic-box{
+    width:110px;
+    height:100px;
+    border:1px solid #ccc;
+    text-align: center;
+    padding-top:30px;
+    color:#ccc;
+    cursor: pointer;
+    margin:0 auto;
+  }
+
+  .date-select{
+    width:192px;
+    margin: 0 auto;
+  }
+
+  .arrow-up{
+    color:#46b8da;
+    cursor: pointer;
+  }
+
+  .arrow-down{
+    color:#46b8da;
+    cursor: pointer;
+  }
+
+  .opt button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+</style>
+
+
+<div class="status-ban form-inline">
+
+  <div class="form-group label-select">
+    <label class="control-label">广告位:</label>
+    <select class="form-control">
+      <option value="0">TopBannerAD_Home</option>
+    </select>
+  </div>
+
+
+  <div class="pull-right">
+    <button type="button" class="btn btn-info" ng-click="addAd()">添加广告</button>
+  </div>
+</div>
+
+<form id="ad_form">
+  <table class="table ad-table">
+    <thead>
+    <tr>
+      <th>序号</th>
+      <th>上传图片</th>
+      <th>链接地址</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="ad_table">
+      <tr>
+        <td style="padding-top:50px;">
+          <span class="table-index">1</span>
+        </td>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[0].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[0].url">
+        </td>
+        <td style="padding-top:40px;">
+        <div class="date-select">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly name="adList[0].startDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+          </div>
+        </div>
+      </td>
+        <td style="padding-top:40px;">
+        <div class="date-select">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly name="adList[0].endDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+          </div>
+        </div>
+      </td>
+        <td style="padding-top:40px;">
+        <i class="glyphicon glyphicon-arrow-up arrow-up"></i>
+        &nbsp;&nbsp;<i class="glyphicon glyphicon-arrow-down arrow-down"></i>
+        &nbsp;&nbsp;<a href="javascript:void(0);">删除</a>
+        <div>
+          <input type="hidden" name="adList[0].sequence">
+        </div>
+      </td>
+      </tr>
+      <tr>
+        <td style="padding-top:50px;">
+          <span class="table-index">2</span>
+        </td>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[1].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[1].url">
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[1].startDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[1].endDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <i class="glyphicon glyphicon-arrow-up arrow-up"></i>
+          &nbsp;&nbsp;<i class="glyphicon glyphicon-arrow-down arrow-down"></i>
+          &nbsp;&nbsp;<a href="javascript:void(0);">删除</a>
+          <div>
+            <input type="hidden" name="adList[1].sequence">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-top:50px;">
+          <span class="table-index">3</span>
+        </td>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[2].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[2].url">
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[2].startDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[2].endDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <i class="glyphicon glyphicon-arrow-up arrow-up"></i>
+          &nbsp;&nbsp;<i class="glyphicon glyphicon-arrow-down arrow-down"></i>
+          &nbsp;&nbsp;<a href="javascript:void(0);">删除</a>
+          <div>
+            <input type="hidden" name="adList[2].sequence">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-top:50px;">
+          <span class="table-index">4</span>
+        </td>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[3].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[3].url">
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[3].startDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[3].endDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <i class="glyphicon glyphicon-arrow-up arrow-up"></i>
+          &nbsp;&nbsp;<i class="glyphicon glyphicon-arrow-down arrow-down"></i>
+          &nbsp;&nbsp;<a href="javascript:void(0);">删除</a>
+          <div>
+            <input type="hidden" name="adList[3].sequence">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding-top:50px;">
+          <span class="table-index">5</span>
+        </td>
+        <td>
+          <div class="pic-box">
+            <div><i class="glyphicon glyphicon-plus"></i></div>
+            <div>添加图片</div>
+          </div>
+          <input type="hidden" name="adList[4].path">
+        </td>
+        <td style="padding-top:40px;">
+          <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[4].url">
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[4].startDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <div class="date-select">
+            <div class="input-group">
+              <input type="text" class="form-control" readonly name="adList[4].endDate">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </span>
+            </div>
+          </div>
+        </td>
+        <td style="padding-top:40px;">
+          <i class="glyphicon glyphicon-arrow-up arrow-up"></i>
+          &nbsp;&nbsp;<i class="glyphicon glyphicon-arrow-down arrow-down"></i>
+          &nbsp;&nbsp;<a href="javascript:void(0);">删除</a>
+          <div>
+            <input type="hidden" name="adList[4].sequence">
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+</form>
+
+<div class="opt text-center">
+  <button type="button" class="btn btn-info">确定</button>
+  <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+</div>
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--添加广告的模板-->
+<div class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <table id="add_ad_template">
+        <tr>
+          <td style="padding-top:50px;">
+            <span class="table-index"></span>
+          </td>
+          <td>
+            <div class="pic-box">
+              <div><i class="glyphicon glyphicon-plus"></i></div>
+              <div>添加图片</div>
+            </div>
+            <input type="hidden" name="adList[#index#].path">
+          </td>
+          <td style="padding-top:40px;">
+            <input type="text" class="form-control" placeholder="链接地址" maxlength="100" name="adList[#index#].url">
+          </td>
+          <td style="padding-top:40px;">
+            <div class="date-select">
+              <div class="input-group">
+                <input type="text" class="form-control" readonly name="adList[#index#].startDate">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </span>
+              </div>
+            </div>
+          </td>
+          <td style="padding-top:40px;">
+            <div class="date-select">
+              <div class="input-group">
+                <input type="text" class="form-control" readonly name="adList[#index#].endDate">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </span>
+              </div>
+            </div>
+          </td>
+          <td style="padding-top:40px;">
+            <i class="glyphicon glyphicon-arrow-up arrow-up"></i>
+            &nbsp;&nbsp;<i class="glyphicon glyphicon-arrow-down arrow-down"></i>
+            &nbsp;&nbsp;<a href="javascript:void(0);">删除</a>
+            <div>
+              <input type="hidden" name="adList[#index#].sequence">
+            </div>
+          </td>
+        </tr>
+      </table>
+
+   </div>
+  </div>
+</div>
+
+

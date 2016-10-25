@@ -1,0 +1,281 @@
+<style type="text/css">
+  .opt button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .role-box{
+    width:660px;
+    height:70px;
+    border-radius: 6px;
+    border:1px solid #ccc;
+    background-color: white;
+    padding:5px 20px;
+  }
+  .role-box ul li{
+    float:left;
+    width:120px;
+    font-size: 14px;
+  }
+
+  .table{
+    background-color: white;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+  }
+
+  .frequency-box{
+    width:660px;
+    border-radius: 6px;
+    border:1px solid #ccc;
+    background-color: white;
+    padding:10px 14px;
+    margin-top:10px;
+    font-size: 14px;
+  }
+
+  .tip-msg{
+    color:#999;
+  }
+
+</style>
+
+<form class="form-group form-horizontal" role="form">
+  <div class="form-group">
+    <div class="col-xs-2 col-md-2 text-right">系统通知事项</div>
+    <div class="col-xs-4 col-md-4">短信验证码获取</div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;通知类型
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <select class="form-control">
+        <option value="0">--请选择--</option>
+        <option>广播</option>
+        <option>组播</option>
+        <option>点播</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;消息类型
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <select class="form-control">
+        <option value="0">--请选择--</option>
+        <option>平台活动</option>
+        <option>通知消息</option>
+        <option>交易消息</option>
+        <option>提醒消息</option>
+        <option>物流消息</option>
+        <option>其他</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;接收对象
+    </label>
+    <div class="col-xs-10 col-md-10">
+      <div class="role-box">
+        <ul>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">所有会员
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">非会员
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">商户管理员
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">店长
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">客户经理
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">平台审核员
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">平台管理员
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">其他
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;通知方式
+    </label>
+    <div class="col-xs-6 col-md-6">
+        <table class="table">
+          <tbody>
+              <tr>
+                <td class="text-left" style="width:140px;">
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="option1">平台消息
+                  </label>
+                </td>
+                <td>
+                  <div class="pull-left">
+                    <span></span>
+                  </div>
+                  <div class="pull-right">
+                    <button type="button" class="btn btn-info btn-sm">选择模板</button>
+                    <button type="button" class="btn btn-info btn-sm">设置模板</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="text-left">
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="option1">短信
+                  </label>
+                </td>
+                <td>
+                  <div class="pull-left">
+                    <span></span>
+                  </div>
+                  <div class="pull-right">
+                    <button type="button" class="btn btn-info btn-sm">选择模板</button>
+                    <button type="button" class="btn btn-info btn-sm">设置模板</button>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="text-left">
+                  <label class="checkbox-inline">
+                    <input type="checkbox" value="option1">微信
+                  </label>
+                </td>
+                <td>
+                  <div class="pull-left">
+                    <span></span>
+                  </div>
+                  <div class="pull-right">
+                    <button type="button" class="btn btn-info btn-sm">选择模板</button>
+                    <button type="button" class="btn btn-info btn-sm">设置模板</button>
+                  </div>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;发送频率
+    </label>
+    <div class="col-xs-8 col-md-8">
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" value="option1" checked>一次性
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="optionsRadios" value="option1" checked>周期性
+        </label>
+      </div>
+
+      <div class="frequency-box">
+        <div class="radio">
+          <label>
+            <input type="radio" name="period" value="option1" checked>按分钟
+          </label>&nbsp;&nbsp;
+          <span class="tip-msg">每&nbsp;
+            <input type="text" class="form-control input-sm" style="width:40px;display: inline-block;">
+            &nbsp;分钟发送一次提醒
+          </span>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="period" value="option1" checked>按天
+          </label>
+          &nbsp;&nbsp;<span class="tip-msg">每天发送一次提醒</span>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="period" value="option1" checked>按周
+          </label>
+          &nbsp;&nbsp;<span class="tip-msg">每周发送一次提醒</span>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div>
+            <label class="checkbox-inline">
+                <input type="checkbox" value="option1">结束
+            </label>
+            &nbsp;&nbsp;<span class="tip-msg" style="vertical-align: bottom;">若为未选中，则事项处理完成结束提醒</span>
+          </div>
+          <div style="padding-left:20px;margin-top:5px;">
+            <span class="tip-msg">发送提醒上限次数&nbsp;
+            <input type="text" class="form-control input-sm" style="width:40px;display: inline-block;">
+            &nbsp;大于1的整数
+          </span>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <div>
+            <label class="checkbox-inline">
+              <input type="checkbox" value="option1">开始
+            </label>
+          </div>
+          <div style="padding-left:20px;margin-top:5px;">
+            <span class="tip-msg">提前&nbsp;
+            <input type="text" class="form-control input-sm" style="width:40px;display: inline-block;">
+            &nbsp;
+              <select class="form-control input-sm" style="width:50px;display: inline-block;">
+                  <option value="0">天</option>
+                  <option>周</option>
+              </select>
+              &nbsp;开始发送提醒
+          </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group" style="margin-top:30px;">
+    <div class="opt text-center">
+      <button type="button" class="btn btn-info">确定</button>
+      <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+    </div>
+  </div>
+
+</form>

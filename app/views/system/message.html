@@ -1,0 +1,367 @@
+<style type="text/css">
+
+  .check-condition{
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .form-group{
+    background-color: white;
+  }
+
+  .check-condition .row{
+    padding:10px 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .label-input >*{
+    display: inline-block;
+  }
+
+  .label-input{
+    float:left;
+  }
+
+  .date-select{
+    width:192px;
+  }
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    line-height: 50px;
+    padding:0 20px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table tbody tr{
+    cursor: pointer;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .modal-title{
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+    border-bottom:1px solid #e7e7e7;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .close-icon{
+    position: absolute;
+    top:10px;
+    right:10px;
+    width:24px;
+    height:24px;
+    cursor: pointer;
+  }
+  .message-form .form-group{
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .message-form label{
+    text-align: right;
+  }
+
+  .message-form .col-md-8{
+    font-size: 14px;
+  }
+
+  .channel-table td{
+    text-align: left;
+  }
+
+</style>
+
+
+<div class="check-condition form-inline">
+  <div class="row">
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">系统通知事项</label>
+      <input class="form-control" type="text"  placeholder="系统通知事项" maxlength="20">
+    </div>
+
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">接收对象</label>
+      <select class="form-control">
+        <option value="0">--请选择--</option>
+        <option>所有会员</option>
+        <option>非会员</option>
+        <option>非会员</option>
+        <option>商户管理员</option>
+        <option>店长</option>
+        <option>客户经理</option>
+        <option>平台审核员</option>
+        <option>平台管理员</option>
+        <option>其他</option>
+      </select>
+    </div>
+
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">消息类型</label>
+      <select class="form-control">
+        <option value="0">--请选择--</option>
+        <option>平台活动</option>
+        <option>通知消息</option>
+        <option>交易消息</option>
+        <option>提醒消息</option>
+        <option>物流消息</option>
+        <option>其他</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">通知类型</label>
+      <select class="form-control">
+        <option value="0">--请选择--</option>
+        <option>广播</option>
+        <option>组播</option>
+        <option>点播</option>
+      </select>
+    </div>
+
+    <div class="form-group col-xs-6 col-md-6">
+      <div class="label-input">
+        <label class="control-label">申请提交时间:</label>
+        <div class="date-select" id="datetimepicker1">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="startDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+      <span style="float:left;display: block;padding-top:7px;">-</span>
+      <div class="label-input">
+        <div class="date-select" id="datetimepicker2">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="endDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-xs-2 col-md-2">
+      <button type="button" class="btn btn-info pull-right">查询</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="status-ban form-inline">
+  <div class="pull-right">
+    <a href="/#/system/message/template" class="btn btn-info">
+      <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp;消息模板
+    </a>
+  </div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>系统通知事项</th>
+    <th>通知类型</th>
+    <th>消息类型</th>
+    <th>接收对象</th>
+    <th>平台消息</th>
+    <th>短信</th>
+    <th>微信</th>
+    <th>发送频率</th>
+    <th>更新时间</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr ng-click="detail()">
+      <td>平台活动报名</td>
+      <td>组播</td>
+      <td>平台活动</td>
+      <td>商户管理员,店长</td>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>重复性</td>
+      <td>2016-06-28 10:00</td>
+      <td>
+        <a href="javascript:void(0);" class="set">设置</a>
+        &nbsp;&nbsp;
+        <a href="javascript:void(0);">删除</a>
+      </td>
+    </tr>
+    <tr ng-click="detail()">
+      <td>平台活动报名</td>
+      <td>组播</td>
+      <td>平台活动</td>
+      <td>商户管理员,店长</td>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="option1">A0001
+        </label>
+      </td>
+      <td>重复性</td>
+      <td>2016-06-28 10:00</td>
+      <td>
+        <a href="javascript:void(0);">设置</a>
+        &nbsp;&nbsp;
+        <a href="javascript:void(0);">删除</a>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+<!--消息详细-->
+<div class="container">
+  <div class="row">
+    <div id="messageDetailDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:480px; min-height:480px;margin:0 auto;overflow-y: auto;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>消息详细</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <form class="form-group form-horizontal message-form" role="form" style="margin-top:20px;">
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4">系统通知事项</label>
+                <div class="col-xs-8 col-md-8">待处理事项提醒</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4">通知类型</label>
+                <div class="col-xs-8 col-md-8">组播</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4">消息类型</label>
+                <div class="col-xs-8 col-md-8">提醒消息</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4">接收对象</label>
+                <div class="col-xs-8 col-md-8">平台审核员，平台管理员</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4">通知方式</label>
+                <div class="col-xs-8 col-md-8">
+                  <table class="table channel-table">
+                    <tbody>
+                        <tr>
+                          <td>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" value="option1">平台消息
+                            </label>
+                          </td>
+                          <td>MSG000006</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" value="option1">短信
+                            </label>
+                          </td>
+                          <td>MSG000006</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" value="option1">微信
+                            </label>
+                          </td>
+                          <td>MSG000006</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-xs-4 col-md-4">发送频率</label>
+                <div class="col-xs-8 col-md-8">
+                  <p>周期性</p>
+                  <p>按分钟 每&nbsp;&nbsp;<span>3</span>&nbsp;&nbsp;分钟,发送一次提醒</p>
+                  <p>结束 发送提醒上限次数&nbsp;&nbsp;<span>10</span></p>
+                </div>
+              </div>
+            </form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

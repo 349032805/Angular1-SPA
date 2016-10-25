@@ -1,0 +1,443 @@
+<style type="text/css">
+  .user-title{
+    width:99%;
+    height:66px;
+    background-color: #e3f7ff;
+    padding:10px 20px;
+    font-size: 14px;
+  }
+
+  .block-title{
+    width:99%;
+    height:40px;
+    line-height: 40px;
+    background-color: #e7e7e7;
+    margin-top:6px;
+    padding:0 20px;
+    cursor: pointer;
+  }
+
+  .block-title img{
+    vertical-align: sub;
+  }
+
+  .block-content{
+    padding:10px 20px;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .info-index{
+    color:#999;
+  }
+
+  .person-data .row{
+    margin-bottom: 10px;
+  }
+
+  .pic-box{
+    font-size: 14px;
+    color:#999;
+    text-align: center;
+    width:160px;
+    float:left;
+    margin-right:30px;
+    position: relative;
+  }
+
+  .pic-box img{
+    width:100%;
+    height:140px;
+    display: block;
+  }
+
+  .check-circle-right{
+    width: 30px;
+    height: 30px;
+    border:none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #7DD2E1;
+    text-align: center;
+    line-height: 32px;
+    color:white;
+
+    position: absolute;
+    right:-10px;
+    bottom: 30px;
+    z-index: 100;
+  }
+
+  .check-circle-error{
+    width: 30px;
+    height: 30px;
+    border:none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #ff5e5e;
+    text-align: center;
+    line-height: 32px;
+    color:white;
+
+    position: absolute;
+    right:-10px;
+    bottom: 30px;
+    z-index: 100;
+  }
+
+  .check-result{
+    width:100%;
+    height:100px;
+    background-color: #e3f7ff;
+    margin-top:40px;
+    position: relative;
+    padding:20px;
+  }
+
+  .paperclip{
+    position: absolute;
+    top:-10px;
+    left:10px;
+    z-index: 100;
+    font-size: 24px;
+    color:#46b8da;
+  }
+
+  .reason li{
+    float:left;
+    margin-right:20px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .shop-form button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .opt button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .content-group{
+    display: none;
+  }
+
+  .arrow{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+  }
+
+  .arrow-up{
+    background: url('/images/arrow-up.png') no-repeat;
+  }
+
+  .arrow-down2 {
+    background: url('/images/arrow-down2.png') no-repeat;
+  }
+</style>
+
+<div style="background-color: white;padding-bottom: 30px;">
+  <div class="user-title">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">真实姓名: 范骏</div>
+      <div class="col-xs-4 col-md-4">手机号码: 18702121893</div>
+      <div class="col-xs-4 col-md-4 text-right">订单提交时间: 2016/05/05 09:00</div>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <div class="col-xs-4 col-md-4">订单编号: 120412678765955</div>
+      <div class="col-xs-8 col-md-8 text-right">
+        <i class="glyphicon glyphicon-search" style="color:#999;"></i>&nbsp;
+        <a href="/#/deal/orderDetail" target="_blank">查看订单详情</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-title" id="auth">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">实名认证</div>
+      <div class="col-xs-4 col-md-4">提交时间: 2016/05/05 09:00</div>
+      <div class="col-xs-4 col-md-4 text-right">
+        <i class="glyphicon glyphicon-ok-sign" style="color:#7DD2E1;"></i>
+        <span style="margin-left:6px;margin-right:10px;">审核通过</span>
+        <span class="arrow arrow-up"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-content content-group" id="auth_content">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">真实姓名: 范骏</div>
+      <div class="col-xs-4 col-md-4">身份证号: 1401105198000000001</div>
+    </div>
+  </div>
+
+
+  <div class="block-title" style="cursor: default;">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">证件上传</div>
+      <div class="col-xs-4 col-md-4">提交时间: 2016/05/05 09:00</div>
+      <div class="col-xs-4 col-md-4 text-right">
+        <i class="glyphicon glyphicon-pencil" style="color:#7DD2E1;"></i>
+        <span style="margin-left:6px;margin-right:10px;">待审核</span>
+        <!--<span class="arrow arrow-up"></span>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="block-content">
+    <div class="row" style="margin-left:0;">
+      <div class="pic-box">
+        <p>身份证正面照片</p>
+        <img src="/images/1.jpg">
+        <div style="margin-top:10px;">
+          <button type="button" class="btn btn-info">通过</button>
+          <button type="button" class="btn btn-info">拒绝</button>
+        </div>
+        <div class="check-circle-right">
+          <i class="glyphicon glyphicon-ok"></i>
+        </div>
+        <!--<div class="check-circle-error">-->
+        <!--<i class="glyphicon glyphicon-remove"></i>-->
+        <!--</div>-->
+      </div>
+
+      <div class="pic-box">
+        <p>身份证背面照片</p>
+        <img src="/images/1.jpg">
+        <div style="margin-top:10px;">
+          <button type="button" class="btn btn-info">通过</button>
+          <button type="button" class="btn btn-info">拒绝</button>
+        </div>
+        <!--<div class="check-circle-right">-->
+        <!--<i class="glyphicon glyphicon-ok"></i>-->
+        <!--</div>-->
+        <div class="check-circle-error">
+          <i class="glyphicon glyphicon-remove"></i>
+        </div>
+      </div>
+
+      <div class="pic-box">
+        <p>手持身份证照片</p>
+        <img src="/images/1.jpg">
+        <div style="margin-top:10px;">
+          <button type="button" class="btn btn-info">通过</button>
+          <button type="button" class="btn btn-info">拒绝</button>
+        </div>
+        <div class="check-circle-right">
+          <i class="glyphicon glyphicon-ok"></i>
+        </div>
+        <!--<div class="check-circle-error">-->
+        <!--<i class="glyphicon glyphicon-remove"></i>-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
+    <!--意见说明-->
+    <div class="check-result">
+      <div class="paperclip">
+        <i class="glyphicon glyphicon-paperclip"></i>
+      </div>
+
+      <label style="float:left;">意见说明:</label>
+      <ul class="reason" style="float:left;margin-left:20px;">
+        <li>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="option1">资料不属实
+          </label>
+        </li>
+        <li>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="option1">内容不详细
+          </label>
+        </li>
+      </ul>
+
+      <div class="row" style="clear:both;margin-left:0;">
+        <input type="text" class="form-control" placeholder="详细说明" maxlength="50" style="width:500px;">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="block-title" style="cursor: default;">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">订单审核信息</div>
+      <div class="col-xs-4 col-md-4">审核提交时间: 2016/05/05 09:00</div>
+      <div class="col-xs-4 col-md-4 text-right">
+        <i class="glyphicon glyphicon-pencil" style="color:#7DD2E1;"></i>
+        <span style="margin-left:6px;margin-right:10px;">待审核</span>
+        <!--<span class="arrow arrow-up"></span>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="block-content">
+    <div class="row" style="margin-left:0;">
+      <div class="pic-box">
+        <p>分期协议书-页1</p>
+        <img src="/images/1.jpg">
+        <div style="margin-top:10px;">
+          <button type="button" class="btn btn-info">通过</button>
+          <button type="button" class="btn btn-info">拒绝</button>
+        </div>
+        <div class="check-circle-right">
+          <i class="glyphicon glyphicon-ok"></i>
+        </div>
+        <!--<div class="check-circle-error">-->
+        <!--<i class="glyphicon glyphicon-remove"></i>-->
+        <!--</div>-->
+      </div>
+
+      <div class="pic-box">
+        <p>分期协议书-页2</p>
+        <img src="/images/1.jpg">
+        <div style="margin-top:10px;">
+          <button type="button" class="btn btn-info">通过</button>
+          <button type="button" class="btn btn-info">拒绝</button>
+        </div>
+        <!--<div class="check-circle-right">-->
+        <!--<i class="glyphicon glyphicon-ok"></i>-->
+        <!--</div>-->
+        <div class="check-circle-error">
+          <i class="glyphicon glyphicon-remove"></i>
+        </div>
+      </div>
+
+      <div class="pic-box">
+        <p>分期协议书-页3</p>
+        <img src="/images/1.jpg">
+        <div style="margin-top:10px;">
+          <button type="button" class="btn btn-info">通过</button>
+          <button type="button" class="btn btn-info">拒绝</button>
+        </div>
+        <div class="check-circle-right">
+          <i class="glyphicon glyphicon-ok"></i>
+        </div>
+        <!--<div class="check-circle-error">-->
+        <!--<i class="glyphicon glyphicon-remove"></i>-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
+    <!--意见说明-->
+    <div class="check-result">
+      <div class="paperclip">
+        <i class="glyphicon glyphicon-paperclip"></i>
+      </div>
+
+      <label style="float:left;">意见说明:</label>
+      <ul class="reason" style="float:left;margin-left:20px;">
+        <li>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="option1">资料不属实
+          </label>
+        </li>
+        <li>
+          <label class="checkbox-inline">
+            <input type="checkbox" value="option1">内容不详细
+          </label>
+        </li>
+      </ul>
+
+      <div class="row" style="clear:both;margin-left:0;">
+        <input type="text" class="form-control" placeholder="详细说明" maxlength="50" style="width:500px;">
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="block-title" id="history">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">审核历史</div>
+      <div class="col-xs-8 col-md-8 text-right">
+        <span class="arrow arrow-up"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-content content-group" id="history_content">
+    <table class="table table-hover check-table">
+      <thead>
+      <tr>
+        <th>操作流水号</th>
+        <th>审核模块</th>
+        <th>审核人</th>
+        <th>提交时间</th>
+        <th>审核时间</th>
+        <th>审核结果</th>
+        <th>拒绝原因</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>78901234567890</td>
+        <td>实名认证</td>
+        <td>系统审核</td>
+        <td>2016/01/01 09:00</td>
+        <td>2016/01/01 10:00</td>
+        <td>审核拒绝</td>
+        <td>身份证号与姓名不符</td>
+      </tr>
+
+      <tr>
+        <td>78901234567890</td>
+        <td>实名认证</td>
+        <td>系统审核</td>
+        <td>2016/01/01 09:00</td>
+        <td>2016/01/01 10:00</td>
+        <td>审核拒绝</td>
+        <td>身份证号与姓名不符</td>
+      </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+
+
+  <div class="opt text-center" style="margin-top:10px;">
+    <button type="button" class="btn btn-info">确定</button>
+    <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+  </div>
+
+</div>
+
+
+<!--查看大图-->
+<div id="showImgModal" class="modal fade text-center" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" style="display: inline-block; top:60px; width: auto;min-width:300px; max-width: 60%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" style="color:#ff0000;top: 5px;right: 5px;position: absolute;" data-dismiss="modal" aria-label="Close">
+          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+        </button>
+        <img id="showImg" src="" style="max-width: 100%;">
+      </div>
+    </div>
+  </div>
+</div>

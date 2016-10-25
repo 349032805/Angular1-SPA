@@ -1,0 +1,200 @@
+<div id="wrapper">
+    <!-- 左侧导航 -->
+    <nav class="navbar-left" role="navigation">
+        <div class="nav-box">
+            <img src="/images/system-logo.png" class="sys-logo"/>
+            <ul class="menu-box">
+                <li>
+                    <a href="#/main/index" ui-sref="main.index">
+                        <div>
+                            <img src="/images/home-icon.png"/>
+                            <span class="menus">首页</span>
+                        </div>
+                        <div class="hover-menu active-menu"></div>
+                    </a>
+                </li>
+                <li id="deal">
+                    <div>
+                        <img src="/images/deal-icon.png"/>
+                        <span class="menus">交易管理</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="deal_children">
+                        <li><a href="#/deal/orderManage" ui-sref="main.orderManage">订单管理</a></li>
+                        <li><a href="#/deal/orderHandle" ui-sref="main.orderHandle">订单处理</a></li>
+                        <li><a href="#/deal/orderDelivery" ui-sref="main.orderDelivery">订单发货</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+                <li id="product">
+                    <div>
+                        <img src="/images/product-icon.png"/>
+                        <span class="menus">商品管理</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="product_children">
+                        <li><a href="#/product/inSale" ui-sref="main.productInSale">在售商品</a></li>
+                        <li><a href="#/product/release" ui-sref="main.productRelease">发布商品</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+                <li id="shop">
+                    <div>
+                        <img src="/images/shop-icon.png"/>
+                        <span class="menus">商户管理</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="shop_children">
+                        <li><a href="#/supplier/list" ui-sref="main.supplierList">商户管理</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+                <li id="check">
+                    <div>
+                        <img src="/images/check-icon.png"/>
+                        <span class="menus">审核管理</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="check_children">
+                        <li><a href="#/check/credit/list" ui-sref="main.checkCredit">信用审核</a></li>
+                        <li><a href="#/check/order/list" ui-sref="main.checkOrder">订单审核</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+                <li id="marketing">
+                    <div>
+                        <img src="/images/service-icon.png"/>
+                        <span class="menus">营销推广</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="marketing_children">
+                        <li><a href="#/marketing/platform" ui-sref="main.marketingPlatform">平台广告</a></li>
+                        <li><a href="#/marketing/product" ui-sref="main.marketingProduct">商品推广</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+
+                <li id="message">
+                    <div>
+                        <img src="/images/message-icon.png"/>
+                        <span class="menus">消息管理</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="message_children">
+                        <li><a href="#/message/send" ui-sref="main.messageSend">发送消息</a></li>
+                        <li><a href="#/message/list" ui-sref="main.messageList">消息管理</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+                <li id="account">
+                    <div>
+                        <img src="/images/account-icon.png"/>
+                        <span class="menus">账户管理</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="account_children">
+                        <li><a href="#/account/user" ui-sref="main.accountUser">用户管理</a></li>
+                        <li><a href="#/account/auth/user" ui-sref="main.accountAuth">权限管理</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+                <li id="system">
+                    <div>
+                        <img src="/images/sys-setting-icon.png"/>
+                        <span class="menus">系统设置</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="system_children">
+                        <li><a href="#/system/productCategory" ui-sref="main.productCategory">商品类目</a></li>
+                        <li><a href="#/system/brand" ui-sref="main.brand">品牌库管理</a></li>
+                        <li><a href="#/system/productProperty" ui-sref="main.productProperty">商品属性</a></li>
+                        <li><a href="#/system/message" ui-sref="main.message">消息设置</a></li>
+                        <li><a href="#/system/contract" ui-sref="main.contract">合同模板</a></li>
+                        <li><a href="#/system/other" ui-sref="main.other">其他设置</a></li>
+                        <li><a href="#/system/dictionary" ui-sref="main.dictionary">数据字典</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+                <li id="person">
+                    <div>
+                        <img src="/images/person-icon.png"/>
+                        <span class="menus">个人中心</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="person_children">
+                        <li><a href="#/person/modifyPassword" ui-sref="main.modifyPassword">修改密码</a></li>
+                        <li><a href="#/person/certification" ui-sref="main.certification">实名认证</a></li>
+                        <li><a href="#/person/changePhone" ui-sref="main.changePhone">修改手机</a></li>
+                        <li><a href="#/person/findPassword" ui-sref="main.findPassword">找回密码</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+
+                 <li id="test">
+                    <div>
+                        <img src="/images/home-icon.png"/>
+                        <span class="menus">测试</span>
+                        <span class="arrow arrow-right"></span>
+                    </div>
+                    <ul class="child-menu-box" id="test_children">
+                        <li><a href="#/test" ui-sref="main.test">测试</a></li>
+                    </ul>
+                    <div class="hover-menu"></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 右侧内容 -->
+    <div class="right-content">
+        <div class="sys-banner">
+            <div class="sys-title">融易用后台管理系统</div>
+            <div class="user-opt">
+                <a href="#" style="margin-right:10px;">范骏</a>
+                <a href="#" style="text-decoration: underline;">个人中心</a>
+                <span style="margin:0 5px;">|</span>
+                <a href="javascript:void(0);" style="text-decoration: underline;" ng-click="logout()">安全退出</a>
+            </div>
+        </div>
+
+        <!-- 导航路径 -->
+        <div class="nav-path">
+            <div class="pull-left">
+             <!-- <img src="/images/nav-arrow.png" style="vertical-align: sub;margin:0 10px;"> -->
+               <!--  <span id="menu"></span>
+                &gt; <span id="childMenu"></span>
+                <span id="detailMenu"></span> -->
+                {{menuPath}}
+            </div>
+            <div class="pull-right">
+                <button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back(-1);">返回</button>
+            </div>
+        </div>
+
+        <!-- <div class="content-box" id="container_tab" ng-view=""></div> -->
+        <div class="content-box" id="container_tab" ui-view=""></div>
+    </div>
+</div>
+
+<div id="modal_server_error" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4>温馨提示：</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" style="margin-bottom: 0px;" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <!-- <span class="sr-only">Error:</span> -->
+                    <span id="server_error_msg"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div style="padding-right:20px;">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" style="padding-left:20px;padding-right:20px;">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

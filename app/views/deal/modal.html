@@ -1,0 +1,284 @@
+<style type="text/css">
+  .modal-title{
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+    border-bottom:1px solid #e7e7e7;
+    font-size: 16px;
+    position: relative;
+  }
+  /*模态框样式*/
+  /*退款受理*/
+  .refund-detail{
+    width:100%;
+    padding:14px 14px;
+    font-size: 14px;
+    border-bottom:1px solid #e7e7e7;
+  }
+
+  .refund-agree{
+    width:100%;
+    padding:16px 14px;
+  }
+
+  .radio-box{
+    width:18px;
+    height:18px;
+    margin-top:7px;
+    vertical-align: sub;
+    margin-right:10px;
+  }
+
+  .refund-tip{
+    font-size: 14px;
+    color:#ff5e5e;
+    margin-top:10px;
+    margin-bottom: 20px;
+  }
+
+  .submit-btn{
+    display: block;
+    width:160px;
+    height:36px;
+    border:none;
+    border-radius: 18px;
+    background-color: #7DD2E1;
+    color:white;
+    font-size: 16px;
+    margin:0 auto;
+  }
+
+  .modal-ban{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+    background-color: #e7e7e7;
+    padding-left:20px;
+    font-size: 18px;
+  }
+
+  .process-check{
+    padding:14px;
+    width:100%;
+    position: relative;
+  }
+
+  .point-circle{
+    width: 15px;
+    height: 15px;
+    border:none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #7DD2E1;
+    float:left;
+  }
+
+  .refund-process{
+    float:left;
+    font-size: 14px;
+    margin-left:20px;
+    padding-bottom: 30px;
+  }
+
+  /*退款详情*/
+  .process{
+    height:80px;
+    position: relative;
+    margin-top:20px;
+  }
+
+  .process-box{
+    width:74px;
+    text-align: center;
+    float:left;
+  }
+
+  .process-circle{
+    width: 40px;
+    height: 40px;
+    border:none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #7DD2E1;
+    text-align: center;
+    line-height: 40px;
+    color:white;
+    margin:0 auto;
+  }
+
+  .w50{
+    width:50px;
+  }
+
+  .process-line{
+    border-bottom: 2px solid #7DD2E1;
+    float:left;
+    padding-top:18px;
+  }
+
+  .process-title{
+    margin-top:10px;
+    color:#999;
+  }
+
+  .vertical-line{
+    position: absolute;
+    top:20px;
+    left:20px;
+    width:4px;
+    height:200px;
+    background-color: #7DD2E1;
+  }
+</style>
+
+<span ng-click="refundOpt()">退款受理</span>&nbsp;
+<span ng-click="refundDetail()">退款详情</span>&nbsp;
+<span>售后服务</span>&nbsp;
+<span>交易异常关闭</span>&nbsp;
+<span>交易异常详情</span>&nbsp;
+
+<!--状态模态框-->
+<!--退款处理-->
+<div class="container">
+  <div class="row">
+    <div id="refundDealDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:440px; height:500px;margin:0 auto;overflow-y: auto;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>退款受理</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <div class="refund-detail">
+              <p>退款原因：&nbsp;<span>质量问题</span></p>
+              <p>退款金额：&nbsp;<span> ¥ 999.00</span></p>
+              <p>退款说明：&nbsp;<span>到货包装完好，屏幕碎裂</span></p>
+              <div>提交时间：&nbsp;<span>2016/05/01 10:00</span></div>
+            </div>
+
+            <div class="refund-agree">
+              <div style="padding-left:50px;">
+                <img src="/images/radio_check_icon.png" class="radio-box check-radio">
+                <span class="check-title" style="margin-right:70px;">同意退款</span>
+
+                <img src="/images/radio_empty_icon.png" class="radio-box check-radio">
+                <span class="check-title">拒绝退款</span>
+              </div>
+
+              <textarea class="form-control" rows="3" placeholder="请填写拒绝理由" style="margin-top:20px;"></textarea>
+
+              <p class="text-center refund-tip">同意退款时，请确保您的货品没有发出或联系快递收回</p>
+
+              <button type="button" class="submit-btn">提交</button>
+            </div>
+
+            <div class="modal-ban">进度查询</div>
+            <div class="process-check">
+              <div class="point-circle"></div>
+              <div class="refund-process">
+                <div>2016/05/01 10:00</div>
+                <p style="margin-top:5px;">客户申请退款</p>
+
+                <div>
+                  <div>退款原因：质量问题</div>
+                  <div>退款金额：¥ 999.00</div>
+                  <div>退款说明：到货包装完好，屏幕碎裂</div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--退款详情-->
+<div class="container">
+  <div class="row">
+    <div id="refundDetailDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog" style="margin:0 auto;">
+        <div class="modal-content" style="width:440px; height:500px;margin:0 auto;overflow-y: auto;">
+          <div class="modal-body" style="padding:0;height:100%;border-radius: 4px;margin-bottom:30px;">
+
+            <div class="modal-title">
+              <span>退款详情</span>
+              <div style="float: right;padding-top:10px;padding-right:5px;">
+                <button type="button" class="close" style="color:red;outline: none;" data-dismiss="modal" aria-label="Close">
+                  <span class="glyphicon glyphicon-remove-circle closeBtn" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+
+            <!--流程-->
+            <div class="process-check" style="border-bottom: 1px solid #e7e7e7;height:200px;">
+              <div class="point-circle"></div>
+              <div class="refund-process" style="padding-bottom: 0;">
+                <p>2016/05/01 10:00</p>
+                <p>退款进度：成功到账 （到时间 05/08 10:00）</p>
+                <p>退换明细：红果建设银行 原路退回</p>
+
+                <div class="process">
+                  <div class="process-box">
+                    <div class="process-circle active-process">1</div>
+                    <div class="process-title active-title">
+                      <div>付款成功</div>
+                    </div>
+                  </div>
+                  <div class="process-line w50 finish-line"></div>
+                  <div class="process-box">
+                    <div class="process-circle">2</div>
+                    <div class="process-title">银行处理中</div>
+                  </div>
+                  <div class="process-line w50"></div>
+                  <div class="process-box">
+                    <div class="process-circle">
+                      <img src="/images/tick.png" width="24" height="auto">
+                    </div>
+                    <div class="process-title">成功到账</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="vertical-line"></div>
+            </div>
+
+            <div class="process-check" style="border-bottom: 1px solid #e7e7e7;height:122px;">
+              <div class="point-circle"></div>
+              <div class="refund-process" style="padding-bottom: 0;width:340px;">
+                <p>2016/05/01 10:00</p>
+                <p>商户同意本次退款</p>
+                <div>拒绝原因：不接受主观原因的退货申请 (若拒绝则输入理由)dsadsadsadsadsad</div>
+              </div>
+              <div class="vertical-line" style="height:125px;"></div>
+            </div>
+
+            <div class="process-check" style="height:180px;">
+              <div class="point-circle"></div>
+              <div class="refund-process" style="padding-bottom: 0;width:340px;">
+                <p>2016/05/01 10:00</p>
+                <p>客户申请退款</p>
+                <p>退款原因：质量问题</p>
+                <p>退货金额：¥ 999.00</p>
+                <p>退款说明：到货包装完好，屏幕碎裂</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,275 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+
+body {
+  font-size:16px;
+  font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  background-color: #edeff5;
+  overflow-y:auto!important;
+}
+
+button{
+  outline: none;
+}
+button:hover{
+  opacity: 0.8;
+}
+input[type="button"]{
+  outline: none;
+}
+
+input[type="button"]:hover{
+  opacity: 0.8;
+}
+
+a:hover{
+  text-decoration: none;
+  //color:#00b7ec;
+}
+
+ul{
+  list-style: none;
+  padding:0;
+}
+
+table td,th {
+  text-align: center;
+}
+
+input{
+  outline: none;
+}
+
+input:focus {
+  border-color: #2CB7C9!important;
+  box-shadow: none;
+  outline: none;
+}
+
+select:focus {
+  border-color: #2CB7C9!important;
+}
+
+textarea:focus{
+  border-color: #2CB7C9!important;
+}
+
+label{
+  font-weight: normal;
+}
+
+.btn{
+  outline: none!important;
+}
+
+/*必填项符号*/
+.required{
+  //font-family: '微软雅黑'!important;
+  color:red;
+}
+
+.form-control{
+  box-shadow: none!important;
+}
+
+
+#wrapper {
+  width: 100%;
+  overflow-x: hidden;
+
+  .navbar-left {
+    position: fixed;
+    width: 200px;
+    z-index: 1000;
+    height: 100%;
+
+    .nav-box::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+    .nav-box::-webkit-scrollbar:vertical {
+      width: 4px;
+      padding: 0 2px
+    }
+    .nav-box::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background-color: #2f323a;
+    }
+    .nav-box::-webkit-scrollbar-track {
+      border-radius: 6px;
+      background-color: #eceff3;
+    }
+
+    .nav-box {
+      position: relative;
+      width: auto;
+      height: 100%;
+      background-color: #2f323a;
+      overflow-y: auto;
+
+      .sys-logo{
+        display: block;
+        margin: 0 auto;
+        padding-top:20px;
+      }
+
+      .menu-box {
+        margin-top: 20px;
+        padding: 0;
+        list-style: none;
+
+        li {
+          line-height: 40px;
+          width: 100%;
+          padding-left: 14px;
+          cursor: pointer;
+          position: relative;
+
+          img {
+            vertical-align: sub;
+          }
+
+          .menus {
+            font-size: 16px;
+            color: white;
+            margin-left: 5px;
+          }
+
+          .arrow-right {
+            display: block;
+            width: 20px;
+            height: 20px;
+            float: right;
+            background: url('/images/arrow-right.png') no-repeat;
+            margin-top: 10px;
+            margin-right: 8px;
+          }
+
+          .arrow-down {
+            display: block;
+            width: 20px;
+            height: 20px;
+            float: right;
+            background: url('/images/arrow-down.png') no-repeat;
+            margin-top: 10px;
+            margin-right: 8px;
+          }
+
+          .child-menu-box{
+            display: none;
+
+            li{
+              line-height: 40px;
+              width:100%;
+              padding-left:40px;
+              cursor: pointer;
+              color:#c6c6c6;
+
+              a{
+                color:#c6c6c6;
+                width:100%;
+                height:100%;
+                display: block;
+
+                &:hover{
+                  color:white!important;
+                }
+              }
+            }
+          }
+
+          .active-child-menu{
+            color:white!important;
+          }
+
+          .other-child-menu{
+            color:#c6c6c6!important;
+          }
+
+          .hover-menu {
+            width: 4px;
+            height: 100%;
+            background-color: #ff5e5e;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            display: none;
+          }
+
+          .active-menu {
+            display: block !important;
+          }
+
+          &:hover {
+            .hover-menu {
+              display: block;
+            }
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  .right-content{
+    margin-left:200px;
+
+    .sys-banner{
+      width:100%;
+      height:60px;
+      background-color: white;
+      line-height: 60px;
+
+      .sys-title{
+        font-size: 24px;
+        padding-left:20px;
+        float:left;
+      }
+      .user-opt{
+        float:right;
+        font-size: 14px;
+        padding-right:20px;
+
+        a{
+          color:#5e5e5e;
+        }
+      }
+
+    }
+
+    .nav-path{
+      //width:98%;
+      height:40px;
+      line-height: 40px;
+      background-color: white;
+      margin:10px 15px 20px 15px;
+      padding: 0 20px;
+    }
+    .content-box{
+      padding:0 15px;
+      margin-bottom: 60px;
+    }
+
+  }
+
+}
+
+/*隐藏分页样式自带的进度条控件*/
+ .pace-inactive{
+    display:none!important;
+ }
+
+.pace-progress{
+    display: none!important;
+ }
+ .pace-activity{
+    display: none!important;
+ }
+
+
+

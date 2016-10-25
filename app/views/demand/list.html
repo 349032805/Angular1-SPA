@@ -1,0 +1,168 @@
+<style type="text/css">
+   tr th {
+    text-align: center;
+  }
+   tr  td{
+    text-align: center;
+  }
+  .control-margin-top{
+    margin-top:-8px;
+  }
+</style>
+
+<h3 ng-show="type=='wait'">需求信息列表（待审核）</h3>
+<h3 ng-show="type=='pass'">需求信息列表（审核通过）</h3>
+<h3 ng-show="type=='fail'">需求信息列表（审核未通过）</h3>
+<div class="alert alert-success" role="alert" id="alert" style="display: none">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <button class="close" id="closeBtn" ng-click="closeAlert()">×</button>
+  <span></span>
+</div>
+
+<div class="box">
+  <form class="form-inline">
+
+    <div class="form-group">
+      <label class="control-label">客户端:</label>
+      <select class="form-control" id="clienttype" name="clienttype" ng-model="clienttype">
+        <option value="0">全部</option>
+        <option ng-repeat="item in clientTypeList" ng-selected="{{clienttype}}=={{item.sequence}}" value="{{item.sequence}}">{{item.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <span class="control-label">模糊搜索</span>
+      <input type="text" class="form-control" id="content" ng-model="content" placeholder="需求编号/交易员" aria-describedby="sizing-addon1">
+    </div>
+
+    <div class="form-group"> 
+      <label class="control-label" style="margin-left:20px;">日期选择:</label> 
+      <div class="input-group date" id="datetimepickersearch1">
+        <input class="form-control" type="text" style="width:100px;" readonly="true" id="startDate" ng-model="startDate"  placeholder="开始时间">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-calendar"></i>
+        </span>
+        <span class="input-group-addon" ng-click="clearDate1()">
+          <i class="glyphicon glyphicon-remove"></i>
+        </span>
+      </div>
+      <label class="control-label" style="text-align: center; width: 40px;">到</label> 
+      <div class="input-group date" id="datetimepickersearch2" >
+        <input class="form-control" type="text" style="width:100px;" readonly="true" data-date-format="YYYY-MM-DD"  ng-model="endDate"  id="endDate"  placeholder="结束时间">
+        <span class="input-group-addon">
+          <i class="glyphicon glyphicon-calendar"></i>
+        </span>
+        <span class="input-group-addon" ng-click="clearDate2()">
+          <i class="glyphicon glyphicon-remove"></i>
+        </span>
+      </div>
+    </div>  
+
+    <div style="height:15px;"></div>  
+
+    <div class="form-group">
+      <label class="control-label">区域:</label>
+      <select class="form-control" id="deliveryRegion" name="deliveryRegion" ng-model="deliveryRegion">
+        <option value="0">全部</option>
+        <option ng-repeat="item in deliveryRegions" ng-selected="{{deliveryRegion}}=={{item.id}}" value="{{item.id}}">{{item.name}}</option>
+      </select>
+      <label class="control-label">省份:</label>
+      <select class="form-control" id="deliveryProvince" ng-model="deliveryProvince" name="deliveryProvince">
+        <option value="0">全部</option>
+        <option ng-repeat="item in deliveryProvinces" ng-selected="{{deliveryProvince}}=={{item.id}}" value="{{item.id}}">{{item.name}}</option>
+      </select>
+      <label class="control-label">港口:</label>
+      <select class="form-control" id="deliveryHarbour" ng-model="deliveryHarbour" name="deliveryHarbour">
+        <option value="0">全部</option>
+        <option ng-repeat="item in deliveryHarbours" ng-selected="{{deliveryHarbour}}=={{item.id}}" value="{{item.id}}">{{item.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group" style="margin-left: 50px;">
+      <button type="submit" class="btn btn-primary" ng-click="searchDemand()">搜索</button>
+      <button ng-show="type=='pass'" type="submit" class="btn btn-primary" ng-click="exportDemandList()" style="margin-left: 20px;">导出 Excel</button> 
+    </div>
+  </form>
+</div>
+
+<table class="table table-hover" >
+  <thead>
+  <tr>
+    <th>编号</th>
+    <th>需求方</th>
+    <th>需求编号</th>
+    <th>需求数量(吨)</th>
+    <th>提货地址</th>
+    <th>提货时间</th>
+    <th>发布时间</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tfoot>
+  <tr>
+    <td colspan="10" style="text-align:right">
+      <pagination total-items="demand.count" ng-model="demand.page" ng-change="pageTo()" max-size="20" boundary-links="true"></pagination>
+    </td>
+  </tr>
+  </tfoot>
+  <tbody ng-show="demand.count>=0">
+  <tr ng-repeat="item in demand.list">
+    <td>{{$index+1}}</td>
+    <td>
+      <span ng-show="item.demandcustomer.length > 15" title="{{item.demandcustomer}}">{{item.demandcustomer | limitTo: 15}} ...</span>
+      <span ng-show="item.demandcustomer.length <= 15">{{item.demandcustomer}}</span>
+    </td>
+    <td>
+      <span ng-show="item.clienttype == 1">{{item.demandcode}}</span>
+      <span ng-show="item.clienttype == 2">{{item.demandcode}}（安卓）</span>
+      <span ng-show="item.clienttype == 4">{{item.demandcode}}（IOS）</span>
+      <span ng-show="item.clienttype == 3">{{item.demandcode}}（微信）</span>
+    </td>
+    <td>{{item.demandamount}}</td>
+    <td ng-show="{{item.deliveryplace == '其它'}}">{{item.otherplace}}</td>
+    <td ng-show="{{item.deliveryplace != '其它'}}">{{item.deliveryplace}}</td>
+    <td ng-show=" item.deliverydate ">{{item.deliverydate}}</td>
+    <td ng-show=" !item.deliverydate ">{{item.deliverydatestart}}--{{item.deliverydateend}}</td>
+    <td>{{item.releasetime}}</td>
+    <td>
+      <a href="#/demand/view?demandcode={{item.demandcode}}&showType=show"  style="margin-left:2%;">查看</a>
+      <a href="javascript:void(0);"  ng-show="item.checkstatus=='审核通过'" ng-click="cancelDemand(item.demandcode)" style="margin-left:2%;" name="demand-pass-cancel">取消需求</a>
+    </td>
+  </tr>
+  <tr ng-show="demand.count == 0"><td colspan='9' style=' font-size: 18px;text-align: center; color:red;'>没有搜索到您想要的信息。</td></tr>
+  </tbody>
+</table>
+
+<input type="hidden" id="demandcode">
+<div class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false"  id="cancelDemandConfirmDialog" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="false">
+          &times;
+        </button>
+        <h4 class="modal-title">
+          取消确认
+        </h4>
+      </div>
+      <div class="modal-body">
+        您确定要取消此需求吗？
+      </div>
+      <div class="modal-footer">
+        <div class="col-xs-offset-7 col-md-offset-7">
+          <button type="button" class="col-xs-5 col-md-5 col-xs-offset-1 col-md-offset-1 btn btn-primary" ng-click="cancelDemandClick()">
+            确认
+          </button>
+          <button type="button" class="col-xs-5 col-md-5 btn btn-inverse" data-dismiss="modal">
+            取消
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

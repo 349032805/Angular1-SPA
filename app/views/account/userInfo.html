@@ -1,0 +1,588 @@
+<style type="text/css">
+  .user-info{
+    width:100%;
+    height:auto;
+    padding:10px 20px;
+    background-color: #e3f7ff;
+    font-size: 14px;
+  }
+
+  .user-info-tab{
+    width:100%;
+    height:44px;
+    margin-top:20px;
+  }
+  .split-line{
+    width:100%;
+    border-bottom: 2px solid #ffad5c;
+    margin-bottom:14px;
+  }
+
+  .tab-content{
+    /*margin-top:14px;*/
+  }
+  .credit-tab{
+    font-size: 14px;
+    padding-left:20px;
+    height:36px;
+  }
+
+  .tab-box{
+    width:100px;
+    height:36px;
+    line-height: 36px;
+    text-align: center;
+    float:left;
+    margin-right:10px;
+    background-color: white;
+    color:#000;
+    cursor: pointer;
+  }
+
+  .active-tab{
+    background-color: #5bc0de!important;
+    color:white!important;
+  }
+
+
+  /*信用资料*/
+  .block-title{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: #e7e7e7;
+    margin-top:6px;
+    padding:0 20px;
+    cursor: pointer;
+  }
+
+  .block-title img{
+    vertical-align: sub;
+  }
+
+  .block-content{
+    padding:10px 20px;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .info-index{
+    color:#999;
+  }
+
+  .person-data .row{
+    margin-bottom: 10px;
+  }
+
+  .pic-box{
+    font-size: 14px;
+    color:#999;
+    text-align: center;
+    width:160px;
+    float:left;
+    margin-right:30px;
+    position: relative;
+  }
+
+  .pic-box img{
+    width:100%;
+    height:140px;
+    display: block;
+  }
+
+  .content-group{
+    /*display: none;*/
+  }
+
+  .arrow{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+  }
+
+  .arrow-up{
+    background: url('/images/arrow-up.png') no-repeat;
+  }
+
+  .arrow-down2 {
+    background: url('/images/arrow-down2.png') no-repeat;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .circle-empty{
+    width: 20px;
+    height: 20px;
+    border:1px solid #999;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: white;
+    display:inline-block;
+    vertical-align: bottom;
+    margin-right:4px;
+  }
+
+  .circle-tick{
+    display:inline-block;
+    margin-right:4px;
+    font-size: 20px;
+    vertical-align: sub;
+    color:#7DD2E1;
+    width: 18px;
+    height: 18px;
+  }
+
+  .tab-content-group{
+    display: none;
+  }
+
+  .user-form button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+</style>
+
+<div class="user-info form-horizontal">
+  <div class="form-group">
+    <div class="col-xs-4 col-md-4">用户ID:&nbsp;&nbsp; U0001</div>
+    <div class="col-xs-4 col-md-4">手机号码: &nbsp;&nbsp;18702121893</div>
+    <div class="col-xs-4 col-md-4 text-right">注册时间:&nbsp;&nbsp;2016/05/05 09:00</div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4 col-md-4">用户名: &nbsp;&nbsp;fanjun</div>
+    <div class="col-xs-4 col-md-4">真实姓名:&nbsp;&nbsp; 范骏</div>
+    <div class="col-xs-4 col-md-4 text-right">最后一次登录:&nbsp;&nbsp; 2016/05/05 09:00</div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4 col-md-4">来自: &nbsp;&nbsp;李四 (010101)</div>
+    <div class="col-xs-4 col-md-4">身份证号:&nbsp;&nbsp; 1401105198000000001</div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4 col-md-4">推荐码: &nbsp;&nbsp;010101
+      &nbsp;<i class="glyphicon glyphicon-qrcode"></i>
+      &nbsp;<i class="glyphicon glyphicon-link"></i>
+    </div>
+    <div class="col-xs-4 col-md-4">OpenID:&nbsp;&nbsp; 1232434676875645
+      &nbsp;&nbsp;<button type="button" class="btn btn-info btn-sm">解绑微信号</button>
+    </div>
+  </div>
+</div>
+
+<div class="user-info-tab">
+  <ul class="nav nav-tabs" style="float:left;">
+    <li role="presentation" class="active"><a href="javascript:void(0);"  ng-click="changeTab($event)" id="tab1">信用管理</a></li>
+    <li role="presentation"><a href="javascript:void(0);" ng-click="changeTab($event)"  id="tab2">收货地址</a></li> 
+    <li role="presentation"><a href="javascript:void(0);" ng-click="changeTab($event)"  id="tab3">银行卡管理</a></li>
+    <li role="presentation"><a href="javascript:void(0);" ng-click="changeTab($event)"  id="tab4">安全中心</a></li>
+  </ul>
+
+</div>
+<div class="split-line"></div>
+
+<div class="tab-content" id="tab1_content">
+  <div class="credit-tab">
+    <div class="tab-box active-tab" id="credit_info">信用资料</div>
+    <div class="tab-box" id="bad_credit">不良信用记录</div>
+  </div>
+  <div class="split-line" style="border-width: 1px"></div>
+
+  <!--信用资料-->
+  <div id="credit_info_content">
+    <div class="block-title" id="base">
+      <div class="row">
+        <div class="col-xs-4 col-md-4">个人资料</div>
+        <div class="col-xs-4 col-md-4">提交时间: 2016/05/05 09:00</div>
+        <div class="col-xs-4 col-md-4 text-right">
+          <span class="arrow arrow-down2"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-content person-data content-group" id="base_content">
+      <p class="info-index">基本资料</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-4">婚姻状况: 未婚</div>
+        <div class="col-xs-4 col-md-4">房产状况: 自有</div>
+      </div>
+      <p>现居住地：陕西省西安市长安县航天科技园区B栋115号</p>
+
+      <p class="info-index" style="margin-top:20px;">更多信息</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-4">教育程度: 本科</div>
+        <div class="col-xs-4 col-md-4">毕业学校: 上海财经大学</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-4 col-md-4">工作年限: 4年</div>
+        <div class="col-xs-4 col-md-4">目前薪资: 5000元以下</div>
+      </div>
+
+      <p class="info-index" style="margin-top:20px;">其他联系方式</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-4">固定电话: 021-1111111</div>
+        <div class="col-xs-4 col-md-4">微信号: fanjun1231</div>
+      </div>
+      <p>QQ号: 349032805</p>
+
+    </div>
+
+
+    <div class="block-title" id="contact">
+      <div class="row">
+        <div class="col-xs-4 col-md-4">紧急联系人</div>
+        <div class="col-xs-4 col-md-4">提交时间: 2016/05/05 09:00</div>
+        <div class="col-xs-4 col-md-4 text-right">
+          <span class="arrow arrow-down2"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-content person-data content-group" id="contact_content">
+      <p class="info-index">直系亲属</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-4">关系: 配偶</div>
+        <div class="col-xs-4 col-md-4">姓名: 施玲</div>
+        <div class="col-xs-4 col-md-4">联系电话: 18702121893</div>
+      </div>
+
+      <p class="info-index" style="margin-top:20px;">紧急联系人1</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-4">关系: 同学</div>
+        <div class="col-xs-4 col-md-4">姓名: 赵敏</div>
+        <div class="col-xs-4 col-md-4">联系电话: 18702121893</div>
+      </div>
+
+      <p class="info-index" style="margin-top:20px;">紧急联系人2</p>
+      <div class="row">
+        <div class="col-xs-4 col-md-4">关系: 同学</div>
+        <div class="col-xs-4 col-md-4">姓名: 赵敏</div>
+        <div class="col-xs-4 col-md-4">联系电话: 18702121893</div>
+      </div>
+    </div>
+
+
+    <div class="block-title" style="cursor: default;">
+      <div class="row">
+        <div class="col-xs-4 col-md-4">证件上传</div>
+        <div class="col-xs-4 col-md-4">提交时间: 2016/05/05 09:00</div>
+        <div class="col-xs-4 col-md-4 text-right">
+          <span class="arrow arrow-up"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-content">
+      <div class="row" style="margin-left:0;">
+        <div class="pic-box">
+          <p>身份证正面照片</p>
+          <img src="/images/1.jpg">
+        </div>
+
+        <div class="pic-box">
+          <p>身份证背面照片</p>
+          <img src="/images/1.jpg">
+        </div>
+
+        <div class="pic-box">
+          <p>手持身份证照片</p>
+          <img src="/images/1.jpg">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--不良信用记录-->
+  <div id="bad_credit_content" style="display: none;">
+    <div class="block-title">信用概要</div>
+    <div class="block-content content-group">
+      <div class="row">
+        <div class="col-xs-3 col-md-3">良好信用交易数: &nbsp;&nbsp;10</div>
+        <div class="col-xs-3 col-md-3">逾期还款次数: &nbsp;&nbsp;2</div>
+        <div class="col-xs-3 col-md-3">逾期还款9天以上次数: &nbsp;&nbsp;1</div>
+      </div>
+    </div>
+
+    <div class="block-title">不良信用记录</div>
+    <div class="block-content content-group">
+      <table class="table">
+        <thead>
+            <tr>
+              <th>逾期期数</th>
+              <th>逾期天数</th>
+              <th>逾期金额(元)</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2016-04月</td>
+            <td>2</td>
+            <td>200.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+
+<!--收货地址-->
+<div class="tab-content tab-content-group" id="tab2_content">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>收件人</th>
+      <th>联系电话</th>
+      <th>所在地区</th>
+      <th>收件地址</th>
+      <th>设为默认</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>张三</td>
+      <td>18702121893</td>
+      <td>上海</td>
+      <td>上海市浦东新区张江地区晨晖路889号Idream科创中心b115室</td>
+      <td>
+        <div class="circle-empty"></div>&nbsp;默认
+      </td>
+    </tr>
+    <tr>
+      <td>张三</td>
+      <td>18702121893</td>
+      <td>上海</td>
+      <td>上海市浦东新区张江地区晨晖路889号Idream科创中心b115室</td>
+      <td>
+        <div class="circle-tick">
+          <i class="glyphicon glyphicon-ok-circle"></i>
+        </div>&nbsp;默认
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!--银行卡管理-->
+<div class="tab-content tab-content-group" id="tab3_content">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>所属银行</th>
+      <th>卡种</th>
+      <th>户名</th>
+      <th>银行卡号</th>
+      <th>卡状态</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>中国银行</td>
+        <td>储蓄卡</td>
+        <td>张三</td>
+        <td>95599  ****  ****  4321</td>
+        <td>正常</td>
+        <td>
+          <a href="javascript:void(0);">修改银行卡</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="block-title">修改绑定银行卡</div>
+  <div class="block-content content-group">
+    <form class="form-group form-horizontal user-form" role="form">
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;开户名
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <input class="form-control" type="text" placeholder="开户名" maxlength="30">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;所属银行
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <select class="form-control">
+            <option value="0">中国银行</option>
+            <option>农业银行</option>
+            <option>工商银行</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;银行卡号
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <input class="form-control" type="text" placeholder="银行卡号" maxlength="30">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;银行预留手机号
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <input class="form-control" type="text" placeholder="银行卡号" maxlength="11">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top:30px;">
+        <div style="padding-left:200px;">
+          <button type="button" class="btn btn-info">确定</button>
+          <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!--安全中心-->
+<div class="tab-content tab-content-group" id="tab4_content">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>设置项</th>
+      <th>设置信息</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>登录密码</td>
+      <td>*** ***</td>
+      <td>已设置</td>
+      <td>
+        <a href="javascript:void(0);">重置密码</a>
+      </td>
+    </tr>
+    <tr>
+      <td>交易密码</td>
+      <td></td>
+      <td>未设置</td>
+      <td>
+        <a href="javascript:void(0);">还原为"未设置"</a>
+      </td>
+    </tr>
+    <tr>
+      <td>手机号</td>
+      <td>18702121893</td>
+      <td>已绑定</td>
+      <td>
+        <a href="javascript:void(0);">修改绑定手机</a>
+      </td>
+    </tr>
+    <tr>
+      <td>邮箱地址</td>
+      <td>fanjun1231@163.com</td>
+      <td>未绑定</td>
+      <td>
+        <a href="javascript:void(0);">修改绑定邮箱</a>
+      </td>
+    </tr>
+    <tr>
+      <td>用户状态</td>
+      <td>冻结下单功能</td>
+      <td>正常</td>
+      <td>
+        <a href="javascript:void(0);">冻结</a>
+        &nbsp;&nbsp;<a href="javascript:void(0);">恢复使用</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="block-title">修改绑定手机</div>
+  <div class="block-content content-group">
+    <form class="form-group form-horizontal user-form" role="form">
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;旧手机号
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <input class="form-control" type="text" placeholder="旧手机号" maxlength="11">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;新手机号
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <input class="form-control" type="text" placeholder="新手机号" maxlength="11">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top:30px;">
+        <div style="padding-left:200px;">
+          <button type="button" class="btn btn-info">确定</button>
+          <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="block-title">修改绑定邮箱</div>
+  <div class="block-content content-group">
+    <form class="form-group form-horizontal user-form" role="form">
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;旧邮箱地址
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <input class="form-control" type="text" placeholder="旧邮箱地址" maxlength="50">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-xs-2 col-md-2 control-label">
+          <span class="required">*</span>&nbsp;新邮箱地址
+        </label>
+        <div class="col-xs-4 col-md-4">
+          <input class="form-control" type="text" placeholder="新邮箱地址" maxlength="50">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top:30px;">
+        <div style="padding-left:200px;">
+          <button type="button" class="btn btn-info">确定</button>
+          <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+

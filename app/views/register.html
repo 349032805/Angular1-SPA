@@ -1,0 +1,152 @@
+    <style type="text/css">
+        body{
+            margin:0;
+            position: relative;
+            background-color: white;
+        }
+        .theme-banner{
+            width:100%;
+            height:100px;
+            line-height: 100px;
+            color:#41a5df;
+            background: linear-gradient(to right, #41a5df, #41dfb1);
+            padding-left:30px;
+        }
+
+        .theme-banner img{
+            width:80px;
+            height:80px;
+            position: relative;
+            display: block;
+            top: 50%;
+            -webkit-transform:translateY(-50%);
+            -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+            float:left;
+        }
+
+        .theme-title{
+            font-size: 40px;
+            color:white;
+            float:left;
+            margin-left:10px;
+        }
+
+        @keyframes  form-fade-in{
+            0% {opacity: 0;margin-left:0;}/*初始状态 透明度为0*/
+            100% {opacity: 1;margin-left:-230px;}/*结束状态 透明度为1*/
+        }
+
+        @-webkit-keyframes form-fade-in {
+            0% {opacity: 0;margin-left:0;}
+            100% {opacity: 1;margin-left:-230px;}
+        }
+
+        @keyframes  title-fade-in{
+            0% {opacity: 0;margin-left:-460px;}/*初始状态 透明度为0*/
+            100% {opacity: 1;margin-left:0;}/*结束状态 透明度为1*/
+        }
+
+        @-webkit-keyframes title-fade-in {
+            0% {opacity: 0;margin-left:-460px;}
+            100% {opacity: 1;margin-left:0;}
+        }
+
+        .register-form{
+            width:460px;
+            position: absolute;
+            left:50%;
+            top:150px;
+            margin-left:-230px;
+            /*background-color: #41dfb1;*/
+            padding-top:20px;
+
+            -webkit-animation:form-fade-in 1s;
+            animation: form-fade-in 1s;
+            /*动画结束后保持最后状态*/
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        .register-btn{
+            padding-left:50px;
+            padding-right:50px;
+        }
+
+        .logo-title{
+            width:100%;
+            height:100px;
+
+            -webkit-animation:title-fade-in 1s;
+            animation: title-fade-in 1s;
+            /*动画结束后保持最后状态*/
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+    </style>
+</head>
+
+<div class="theme-banner">
+    <div class="logo-title">
+        <img src="/images/fanyong-logo.png">
+        <div class="theme-title">融易用后台管理系统</div>
+    </div>
+</div>
+
+<form class="form-group form-horizontal register-form" role="form">
+    <h3 class="text-center" style="margin-bottom: 20px;">注册成功为融易用会员</h3>
+    <div class="form-group">
+        <label class="col-xs-4 col-md-4 control-label">
+            <span class="required">*</span>&nbsp;手机号
+        </label>
+        <div class="col-xs-7 col-md-7">
+            <input class="form-control" type="text" placeholder="输入您的手机号" maxlength="11">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 col-md-4 control-label">
+            <span class="required">*</span>&nbsp;手机验证码
+        </label>
+        <div class="col-xs-7 col-md-7">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="手机验证码" maxlength="6">
+                  <span class="input-group-btn">
+                    <input class="btn btn-info" type="button" value="获取验证码">
+                  </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 col-md-4 control-label">
+            <span class="required">*</span>&nbsp;登录密码
+        </label>
+        <div class="col-xs-7 col-md-7">
+            <input class="form-control" type="text" placeholder="登录密码" maxlength="16">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 col-md-4 control-label">
+            <span class="required">*</span>&nbsp;确认登录密码
+        </label>
+        <div class="col-xs-7 col-md-7">
+            <input class="form-control" type="text" placeholder="再次输入登录密码" maxlength="16">
+        </div>
+    </div>
+
+    <div class="form-group" style="margin-top:60px;">
+        <div style="padding-left:182px;">
+            <div style="margin-bottom: 5px;color:red;">
+                <span id="errorInfo"></span>
+            </div>
+            <button type="button" class="btn btn-info register-btn">立即注册</button>
+            <div style="margin-top:10px;padding-left:20px;font-size: 12px;">
+                已有账号?&nbsp;<a href="#/login">立即登录>></a>
+            </div>
+        </div>
+    </div>
+</form>
+

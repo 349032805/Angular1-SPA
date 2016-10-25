@@ -1,0 +1,235 @@
+<style type="text/css">
+
+  .wait-pass-tab{
+    padding:0 20px;
+    width:100%;
+    height:44px;
+  }
+
+  .export-btn{
+    display: block;
+    height:30px;
+    line-height: 30px;
+    padding:0 10px;
+    border:1px solid #ff5e5e;
+    border-radius: 4px;
+    background-color: white;
+    color:#ff5e5e;
+    float:right;
+    margin-right:30px;
+    margin-top:10px;
+  }
+
+  .check-condition{
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .form-group{
+    background-color: white;
+  }
+
+  .check-condition .row{
+    padding:10px 0;
+    margin-left:0;
+    margin-right:0;
+  }
+
+  .label-input >*{
+    display: inline-block;
+  }
+
+  .label-input{
+    float:left;
+  }
+
+  .date-select{
+    width:192px;
+  }
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    line-height: 50px;
+    padding:0 20px;
+  }
+
+  .table{
+    margin-top:2px;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc!important;
+    color:#5e5e5e;
+    font-weight: 500;
+  }
+
+  .table td{
+    border:1px solid #ccc;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .grey-column{
+    width:140px;
+    height:10px;
+    background-color: #E6E6E6;
+    border:none;
+    border-radius: 10px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .green-column{
+    width:80%;
+    height:10px;
+    background-color: #7DD2E1;
+    border:none;
+    border-radius: 10px;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+
+</style>
+
+<div class="wait-pass-tab">
+  <ul class="nav nav-tabs" style="float:left;">
+    <li role="presentation"><a href="javascript:void(0);" >待审核(112)</a></li>
+    <li role="presentation" class="active"><a href="javascript:void(0);">已审核</a></li>
+  </ul>
+
+  <button type="button" class="btn btn-info pull-right">导出Excel</button>
+
+</div>
+
+<div class="check-condition form-inline">
+  <div class="row">
+    <div class="form-group col-xs-4 col-md-4">
+      <label class="control-label">手机号</label>
+      <input class="form-control" type="text"  placeholder="输入姓名,用户名或手机号" maxlength="20">
+    </div>
+
+    <div class="form-group col-xs-6 col-md-6">
+      <div class="label-input">
+        <label class="control-label">创建时间:</label>
+        <div class="date-select" id="datetimepicker1">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="startDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+      <span style="float:left;display: block;padding-top:7px;">-</span>
+      <div class="label-input">
+        <div class="date-select" id="datetimepicker2">
+          <div class="input-group">
+            <input type="text" class="form-control" readonly id="endDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-xs-2 col-md-2">
+      <button type="button" class="btn btn-info">查询</button>
+    </div>
+  </div>
+</div>
+
+<div class="status-ban form-inline">
+  <div class="form-group label-select">
+    <label class="control-label">交易状态:</label>
+    <select class="form-control">
+      <option value="0">全部</option>
+      <option>111111</option>
+      <option>222222</option>
+    </select>
+  </div>
+
+  <div class="pull-right">
+    <label class="checkbox-inline">
+      <input type="checkbox" value="option1" checked style="margin-top:17px;">显示所有待审核
+    </label>
+
+    <span style="margin-left:20px;cursor: pointer;">
+      <i class="glyphicon glyphicon-refresh" style="color:#5bc0de;"></i>&nbsp;&nbsp;刷新</span>
+  </div>
+</div>
+
+<table class="table table-hover check-table">
+  <thead>
+  <tr>
+    <th>用户ID</th>
+    <th>手机号</th>
+    <th>真实姓名</th>
+    <th>身份证号</th>
+    <th>资料完整度</th>
+    <th>最后更新时间</th>
+    <th>状态</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-click="detail()">
+    <td>U0001</td>
+    <td>18702121893</td>
+    <td>张三</td>
+    <td>411528198812314118</td>
+    <td style="padding-top:12px;">
+      <div class="grey-column">
+        <div class="green-column"></div>
+      </div>
+      &nbsp;&nbsp;<span>80%</span>
+    </td>
+    <td>2016/01/01 10:00</td>
+    <td>待审核</td>
+    <td>
+      <a href="javascript:void(0);" class="check">立即审核</a>
+    </td>
+  </tr>
+
+  <tr ng-click="detail()">
+    <td>U0001</td>
+    <td>18702121893</td>
+    <td>张三</td>
+    <td>411528198812314118</td>
+    <td style="padding-top:12px;">
+      <div class="grey-column">
+        <div class="green-column"></div>
+      </div>
+      &nbsp;&nbsp;<span>80%</span>
+    </td>
+    <td>2016/01/01 10:00</td>
+    <td>待审核</td>
+    <td>
+      <a href="javascript:void(0);" class="check">立即审核</a>
+    </td>
+  </tr>
+
+  </tbody>
+
+</table>
+
+
+<!--模态框-->
+<div class="container">
+  <div class="row">
+    <div id="delDialog" class="modal fade" data-backdrop="true" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:50px;;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">您确定删除此商户?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

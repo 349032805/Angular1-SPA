@@ -1,0 +1,1249 @@
+<style type="text/css">
+
+  .process{
+    width:800px;
+    height:110px;
+    position: relative;
+    margin:0 auto;
+    /*display: none;*/
+  }
+
+  .process-box{
+    width:74px;
+    height:110px;
+    text-align: center;
+    float:left;
+  }
+
+  .process-circle{
+    width: 40px;
+    height: 40px;
+    border:none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #BFBFBF;
+    text-align: center;
+    line-height: 40px;
+    color:white;
+    margin:0 auto;
+  }
+
+  .active-process {
+    background-color: #7DD2E1;
+  }
+
+  .process-title{
+    margin-top:10px;
+    color:#999;
+  }
+
+  .active-title{
+    color:#2CB7C9;
+  }
+
+  .opt-time{
+    font-size: 12px;
+    color:#999;
+  }
+
+  .process-line{
+    border-bottom: 2px solid #BFBFBF;
+    float:left;
+    padding-top:18px;
+  }
+
+  .w150{
+    width:150px;
+  }
+
+  .w50{
+    width:50px;
+  }
+
+  .finish-line{
+    border-color: #95D6E2;
+  }
+
+  .error-process {
+    background-color: #ff5e5e;
+  }
+
+  .process-result{
+    width:200px;
+    height:50px;
+    margin:0 auto;
+    display: none;
+  }
+
+  /*正文*/
+.title-ban{
+  width:100%;
+  height:40px;
+  line-height: 40px;
+  background-color: #e7e7e7;
+  clear: both;
+}
+
+  .block-title{
+    font-weight: 500;
+    float:left;
+    padding-left:10px;
+  }
+
+  .title-ban .order-status{
+    font-size: 14px;
+    /*color:#999;*/
+    float:right;
+    padding-right:20px;
+  }
+
+  .data-row{
+    /*padding:0 10px;*/
+    width:99%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:10px;
+    font-size: 14px;
+    background-color: white;
+  }
+
+  .code-status{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: white;
+    padding-left:30px;
+    padding-right:20px;
+    border:1px solid #ccc;
+  }
+
+  .index{
+
+  }
+  .value{
+    color:#999999;
+  }
+
+  .order-status{
+    float:right;
+    padding-right:30px;
+  }
+
+  .iphone-logo{
+    display: block;
+    float:left;
+  }
+
+  .product{
+    float:left;
+    margin-left:14px;
+  }
+  .order-opt-btn{
+    width:80px;
+    height:30px;
+    line-height: 30px;
+    border:none;
+    background-color: #ff5e5e;
+    border-radius: 16px;
+    float:right;
+    display: block;
+    color:white;
+    margin-top:5px;
+    margin-right:10px;
+  }
+
+  .table{
+    width:100%;
+    margin-bottom:0;
+  }
+  .table th{
+    background-color: #e7e7e7;
+    border:1px solid #ccc;
+  }
+
+  .order-table td{
+    border:1px solid #ccc;
+    border-top:none!important;
+  }
+
+  .order-detail{
+    padding:10px;
+    width:100%;
+    background-color: white;
+    font-size: 14px;
+  }
+
+  .half-block{
+    float:left;
+    width:50%;
+    height:130px;
+    background-color: white;
+    padding:14px;
+  }
+
+  .delivery-pic{
+    display: block;
+    float:left;
+    margin-right:10px;
+  }
+
+  .pay-total{
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .check-btn{
+   /* display: block;
+    width:160px;
+    height:36px;
+    border:none;
+    border-radius: 18px;
+    background-color: #7DD2E1;
+    color:white;
+    font-size: 16px;
+    margin-left:150px;*/
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+
+  /*订单支付详情*/
+  .pay-detail{
+    width:99%;
+    height:300px;
+    margin:0 auto;
+    border:1px solid #ccc;
+    border-top:none;
+    background-color: #F5FBFC;
+    padding:10px;
+  }
+
+  .pay-table td{
+    border:1px solid #ccc;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .pay-box{
+    float:left;
+  }
+
+  .pay-detail .row{
+    margin-bottom: 7px;
+  }
+
+  .pay-pic{
+    display: block;
+    width:auto;
+    height:50px;
+    float:left;
+    margin-right:10px;
+  }
+
+  .pay-period{
+    margin-bottom: 7px;
+  }
+
+  /*查看大图*/
+  .big-img{
+    cursor: pointer;
+  }
+  .view-big-img{
+    width:400px;
+    height:400px;
+    background-color: white;
+    border-radius: 12px;
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left:-100px;
+    margin-top:-200px;
+    z-index: 200;
+    display: none;
+
+  }
+</style>
+
+<!--订单所有状态-->
+<!--
+
+全额付款 full_pay
+已下单待提交审核 place_order_wait_check
+待付款待审核  wait_pay_wait_check
+待付款审核未通过  wait_pay_check_fail
+代付款审核通过  wait_pay_check_pass
+已付款待审核  pay_wait_check
+审核通过待发货  check_pass_wait_delivery
+审核未通过已付款  check_fail_has_pay
+已发货待签收  delivery_wait_receive
+订单已签收  has_received
+还款中  repay
+已还款  process_over
+退款成功  refund_success
+交易关闭  deal_close
+-->
+
+<div class="process" id="full_pay" ng-show="process=='full_pay'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title active-title">
+      <div>提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w150 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">2</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w150"></div>
+  <div class="process-box">
+    <div class="process-circle">3</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w150"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">订单签收</div>
+  </div>
+
+</div>
+
+<div class="process" id="place_order_wait_check" style="width:950px;" ng-show="process=='place_order_wait_check'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title active-title">
+      <div>提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">2</div>
+    <div class="process-title">提交审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">3</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="wait_pay_wait_check" style="width:950px;" ng-show="process=='wait_pay_wait_check'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">3</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="wait_pay_check_fail" style="width:950px;" ng-show="process=='wait_pay_check_fail'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle error-process">3</div>
+    <div class="process-title" style="color:#ff5e5e;">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-remove-circle" style="color:#ff5e5e;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#ff5e5e;">未通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="wait_pay_check_pass" style="width:950px;" ng-show="process=='wait_pay_check_pass'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="pay_wait_check" style="width:950px;" ng-show="process=='pay_wait_check'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="check_pass_wait_delivery" style="width:950px;" ng-show="process=='check_pass_wait_delivery'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title active-title">
+      <div class="process-title">
+        <div class="active-title">订单支付</div>
+        <div class="opt-time">04/12 10:05</div>
+      </div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="check_fail_has_pay" style="width:950px;" ng-show="process=='check_fail_has_pay'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title active-title">
+      <div class="process-title">
+        <div class="active-title">订单支付</div>
+        <div class="opt-time">04/12 10:05</div>
+      </div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle error-process">4</div>
+    <div class="process-title" style="color:#ff5e5e;">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-remove-circle" style="color:#ff5e5e;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#ff5e5e;">未通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+
+<div class="process" id="delivery_wait_receive" style="width:950px;" ng-show="process=='delivery_wait_receive'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="has_receive" style="width:950px;" ng-show="process=='has_receive'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">6</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单签收</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+
+<div class="process" id="repay" style="width:950px;" ng-show="process=='repay'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">6</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单签收</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">7</div>
+    <div class="process-title active-title">还款中</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="process_over" style="width:950px;" ng-show="process=='process_over'">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">6</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单签收</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">7</div>
+    <div class="process-title active-title">还款中</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title active-title">
+      <div class="active-title">已还款</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="process-result" id="refund_success" ng-show="process=='refund_success'">
+  <div class="process-circle active-process" style="float:left;">
+    <i class="glyphicon glyphicon-ok" style="font-size: 24px;color:white;line-height: 36px;"></i>
+  </div>
+  <div style="float:left;margin-left:10px;">
+    <div style="padding-top:2px;">退款成功</div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+</div>
+
+
+<div class="process-result" id="deal_close" ng-show="process=='deal_close'">
+  <div class="process-circle active-process" style="float:left;background-color:#ff5e5e;">
+    <i class="glyphicon glyphicon-remove" style="font-size: 24px;color:white;line-height: 36px;"></i>
+  </div>
+  <div style="float:left;margin-left:10px;">
+    <div style="padding-top:2px;">交易关闭</div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+</div>
+
+
+<!--正文部分-->
+<div class="title-ban">
+  <div class="block-title">订单信息</div>
+  <div class="order-status">订单状态：待提交审核</div>
+</div>
+
+<div class="data-row">
+  <div class="code-status">
+    <div style="float:left;">
+    <span>订单号: <span class="value">123456789123</span></span>
+      <span style="margin-left:20px;">提交时间: <span class="value">2016/05/05 10:00</span></span>
+    </div>
+    <button type="button" class="btn btn-danger btn-sm pull-right" style="margin-top:3px;">取消订单</button>
+  </div>
+
+  <table class="table order-table">
+    <thead>
+      <tr>
+        <th>商品名称</th>
+        <th>商品属性</th>
+        <th>配送/安装</th>
+        <th>实付金额</th>
+        <th>操作/状态</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td style="width:48%;">
+          <img src="/images/iphone.png" class="iphone-logo">
+          <div class="product">
+            <p>2016年新品发布 iPhoneSE 全网通，办理电信融合套餐0元购机</p>
+            <div style="float:left;">
+              商品编号 : <span class="value">1231231231231231</span>
+            </div>
+          </div>
+        </td>
+        <td style="width:13%;text-align: left;">
+          <div style="padding-top:10px;padding-left:10px;">
+            <p>已选: <span class="value">金色</span>&nbsp;<span class="value">16G</span></p>
+            <p>数量: <span class="value">1</span></p>
+          </div>
+        </td>
+        <td style="width:13%;">
+          <div style="padding-top:20px;">实体自提</div>
+        </td>
+        <td style="width:13%;">
+          <div style="padding-top:10px;padding-left:10px;">
+            <p>¥ 5999.00</p>
+            <p>全额付款</p>
+            <p>(运费：¥100)</p>
+          </div>
+        </td>
+        <td style="width:13%;">
+          <div style="padding-top:35px;">分期还款明细&nbsp;<i class="glyphicon glyphicon-chevron-down" style="color:#ff5e5e;cursor: pointer;" ng-click="showPayDetail()"></i></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="pay-detail">
+  <table class="table pay-table">
+    <tr>
+      <td style="width:50%;">
+        <span>订单支付详情</span>
+        <span style="float: right;">
+          <span>还款计划编号： <span class="value">120412678765955－1</span></span>
+        </span>
+      </td>
+      <td>分期还款计划</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="col-xs-4 col-md-4">付款明细</div>
+        <div class="col-xs-4 col-md-4">中国建设银行</div>
+        <div class="col-xs-4 col-md-4">银行代扣</div>
+      </td>
+      <td rowspan="3" style="text-align: center;">
+        <div style="text-align: center;height:230px;overflow-y: auto;">
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+          <div class="col-xs-12 col-md-12 pay-period">
+            <div class="col-xs-4 col-md-4">第1期</div>
+            <div class="col-xs-4 col-md-4">-1000.00</div>
+            <div class="col-xs-4 col-md-4">已还款</div>
+          </div>
+        </div>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="index-detail">
+          <div class="row">
+            <div class="pay-box" style="width:50%;text-align: right;">总金额:</div>
+            <div class="pay-box" style="padding-left:120px;">¥ 11998.00</div>
+          </div>
+          <div class="row">
+            <div class="pay-box" style="width:50%;text-align: right;">首付金额:</div>
+            <div class="pay-box" style="padding-left:120px;">¥ 1998.00</div>
+          </div>
+          <div class="row">
+            <div class="pay-box" style="width:50%;text-align: right;">分期账单:</div>
+            <div class="pay-box" style="padding-left:120px;">¥ 1000.00 × 6</div>
+          </div>
+          <div class="row">
+            <div class="pay-box" style="width:50%;text-align: right;">(含服务费</div>
+            <div class="pay-box" style="padding-left:120px;">¥ 100.00)</div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="/images/system-logo.png" class="pay-pic big-img">
+        <img src="/images/system-logo.png" class="pay-pic big-img">
+        <img src="/images/system-logo.png" class="pay-pic big-img">
+        <img src="/images/system-logo.png" class="pay-pic big-img">
+        <img src="/images/system-logo.png" class="pay-pic big-img">
+        <img src="/images/system-logo.png" class="pay-pic big-img">
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="title-ban" style="margin-top:20px;">
+  <div class="block-title">客户/买家信息</div>
+</div>
+<div class="order-detail">
+  <div class="row">
+    <div class="col-xs-3 col-md-3">真实姓名: <span class="value">范骏</span></div>
+    <div class="col-xs-3 col-md-3">手机号: <span class="value">18702121893</span></div>
+    <div class="col-xs-3 col-md-3">身份证号: <span class="value">411528198812314118</span></div>
+    <div class="col-xs-3 col-md-3">所在地区: <span class="value">上海</span></div>
+  </div>
+</div>
+
+<div class="title-ban">
+  <div class="block-title">商户信息</div>
+</div>
+<div class="order-detail">
+  <div class="row">
+    <div class="col-xs-6 col-md-6">商户名称: <span class="value">苹果官网旗舰店(人民广场店)</span></div>
+    <div class="col-xs-6 col-md-6">客户经理/推荐人: <span class="value">李四(010101）</span></div>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-12 col-md-12">门店地址: <span class="value">上海市黄埔区淮海中路282号香港广场北座（近黄陂南路）</span></div>
+  </div>
+</div>
+
+<div class="title-ban">
+  <div class="block-title">配送信息</div>
+</div>
+
+<div class="order-detail" style="padding:0;">
+  <div class="half-block" style="border-right:1px solid #ccc;">
+    <p>配送方式: <span class="value">物流</span></p>
+    <p>收件人: <span class="value">张三</span></p>
+    <p>联系电话: <span class="value">18702121893</span></p>
+    <p>收货地址: <span class="value">上海市浦东新区张江地区晨晖路889号Idream科创中心b115室</span></p>
+  </div>
+  <div class="half-block">
+    <p>发货信息</p>
+    <div>
+      <img src="/images/system-logo.png" class="delivery-pic big-img">
+      <img src="/images/system-logo.png" class="delivery-pic big-img">
+      <img src="/images/system-logo.png" class="delivery-pic big-img">
+    </div>
+  </div>
+</div>
+
+
+<div class="title-ban">
+  <div class="block-title">订单合计</div>
+</div>
+
+<div class="order-detail">
+  <p class="pay-total">
+    实付金额: &nbsp;&nbsp;<span class="value">¥ 6998.00</span> &nbsp;&nbsp;<span class="value">(共&nbsp;1&nbsp;件)</span>
+  </p>
+
+  <p>
+    首付金额: &nbsp;&nbsp;<span class="value">¥ 699.00</span>
+  </p>
+  <p>
+    <span style="padding-left:14px;">服务费:</span> &nbsp;&nbsp;<span class="value">¥ 100.00</span>
+  </p>
+
+  <div style="padding-left:200px;">
+    <button type="button" class="btn btn-info check-btn">查看合同</button>
+  </div>
+</div>
+
+<!--查看大图-->
+<!--<div class="view-big-img">-->
+  <!--<i class="glyphicon glyphicon-remove-circle" style="float:right;"></i>-->
+<!--</div>-->
+
+<div id="showImgModal" class="modal fade text-center in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="display: inline-block; top:120px; width: auto;min-width:300px; max-width: 60%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" style="color:#ff0000;top: 5px;right: 5px;position: absolute;" data-dismiss="modal" aria-label="Close">
+          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+        </button>
+        <img id="showImg" src="" style="max-width: 100%;">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<style type="text/css">
+
+  .auth-form{
+    padding-top:50px;
+  }
+  .auth-form button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .cancel-btn{
+    background-color: #ccc;
+    border-color: #ccc;
+    margin-left:30px;
+  }
+
+</style>
+
+<form class="form-group form-horizontal auth-form" role="form">
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;真实姓名
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <input class="form-control" type="text" placeholder="输入您的姓名" maxlength="10">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;身份证号
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <input class="form-control" type="text" placeholder="输入您的身份证号" maxlength="22">
+    </div>
+  </div>
+
+  <div class="form-group" style="margin-top:30px;">
+    <div style="padding-left:250px;">
+      <button type="button" class="btn btn-info">确定</button>
+      <button type="button" class="btn btn-info cancel-btn" onclick="javascript:history.back(-1);">取消</button>
+    </div>
+  </div>
+
+</form>

@@ -1,0 +1,799 @@
+<style type="text/css">
+
+  .process{
+    width:800px;
+    height:110px;
+    position: relative;
+    margin:0 auto;
+  }
+
+  .process-box{
+    width:74px;
+    height:110px;
+    text-align: center;
+    float:left;
+  }
+
+  .process-circle{
+    width: 40px;
+    height: 40px;
+    border:none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #BFBFBF;
+    text-align: center;
+    line-height: 40px;
+    color:white;
+    margin:0 auto;
+  }
+
+  .active-process {
+    background-color: #7DD2E1;
+  }
+
+  .process-title{
+    margin-top:10px;
+    color:#999;
+  }
+
+  .active-title{
+    color:#2CB7C9;
+  }
+
+  .opt-time{
+    font-size: 12px;
+    color:#999;
+  }
+
+  .process-line{
+    border-bottom: 2px solid #BFBFBF;
+    float:left;
+    padding-top:18px;
+  }
+
+  .w150{
+    width:150px;
+  }
+
+  .w50{
+    width:50px;
+  }
+
+  .finish-line{
+    border-color: #95D6E2;
+  }
+
+  .error-process {
+    background-color: #ff5e5e;
+  }
+
+  .process-result{
+    width:200px;
+    height:50px;
+    margin:0 auto;
+  }
+
+</style>
+
+<!--订单所有状态-->
+<!--
+
+全额付款 full_pay
+已下单待提交审核 place_order_wait_check
+待付款待审核  wait_pay_wait_check
+待付款审核未通过  wait_pay_check_fail
+代付款审核通过  wait_pay_check_pass
+已付款待审核  pay_wait_check
+审核通过待发货  check_pass_wait_delivery
+审核未通过已付款  check_fail_has_pay
+已发货待签收  delivery_wait_receive
+订单已签收  has_received
+还款中  repay
+已还款  process_over
+退款成功  refund_success
+交易关闭  deal_close
+-->
+
+<div class="process" id="full_pay">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title active-title">
+      <div>提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w150 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">2</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w150"></div>
+  <div class="process-box">
+    <div class="process-circle">3</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w150"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">订单签收</div>
+  </div>
+
+</div>
+
+<div class="process" id="place_order_wait_check" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title active-title">
+      <div>提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">2</div>
+    <div class="process-title">提交审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">3</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="wait_pay_wait_check" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">3</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="wait_pay_check_fail" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle error-process">3</div>
+    <div class="process-title" style="color:#ff5e5e;">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-remove-circle" style="color:#ff5e5e;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#ff5e5e;">未通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="wait_pay_check_pass" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单支付</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="pay_wait_check" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">4</div>
+    <div class="process-title">订单审核</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="check_pass_wait_delivery" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title active-title">
+      <div class="process-title">
+        <div class="active-title">订单支付</div>
+        <div class="opt-time">04/12 10:05</div>
+      </div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="check_fail_has_pay" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title active-title">
+      <div class="process-title">
+        <div class="active-title">订单支付</div>
+        <div class="opt-time">04/12 10:05</div>
+      </div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle error-process">4</div>
+    <div class="process-title" style="color:#ff5e5e;">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-remove-circle" style="color:#ff5e5e;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#ff5e5e;">未通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">5</div>
+    <div class="process-title">订单发货</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+
+<div class="process" id="delivery_wait_receive" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">6</div>
+    <div class="process-title">订单签收</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="has_receive" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">6</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单签收</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">7</div>
+    <div class="process-title">还款中</div>
+  </div>
+  <div class="process-line w50"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+
+<div class="process" id="repay" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">6</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单签收</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">7</div>
+    <div class="process-title active-title">还款中</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title">已还款</div>
+  </div>
+
+</div>
+
+<div class="process" id="process_over" style="width:950px;">
+  <div class="process-box">
+    <div class="process-circle active-process">1</div>
+    <div class="process-title">
+      <div class="active-title">提交订单</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">2</div>
+    <div class="process-title">
+      <div class="active-title">提交审核</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">3</div>
+    <div class="process-title">
+      <div class="active-title">订单支付</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">4</div>
+    <div class="process-title active-title">订单审核</div>
+    <div>
+      <i class="glyphicon glyphicon-ok-circle" style="color:#7DD2E1;vertical-align: middle;"></i>
+      &nbsp;<span style="font-size: 12px;color:#2CB7C9;">审核通过</span>
+    </div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">5</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单发货</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">6</div>
+    <div class="process-title active-title">
+      <div class="active-title">订单签收</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">7</div>
+    <div class="process-title active-title">还款中</div>
+  </div>
+  <div class="process-line w50 finish-line"></div>
+  <div class="process-box">
+    <div class="process-circle active-process">
+      <img src="/images/tick.png" width="24" height="auto">
+    </div>
+    <div class="process-title active-title">
+      <div class="active-title">已还款</div>
+      <div class="opt-time">04/12 10:05</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="process-result" id="refund_success">
+  <div class="process-circle active-process" style="float:left;">
+    <i class="glyphicon glyphicon-ok" style="font-size: 24px;color:white;line-height: 36px;"></i>
+  </div>
+  <div style="float:left;margin-left:10px;">
+    <div style="padding-top:2px;">退款成功</div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+</div>
+
+
+<div class="process-result" id="deal_close">
+  <div class="process-circle active-process" style="float:left;background-color:#ff5e5e;">
+    <i class="glyphicon glyphicon-remove" style="font-size: 24px;color:white;line-height: 36px;"></i>
+  </div>
+  <div style="float:left;margin-left:10px;">
+    <div style="padding-top:2px;">交易关闭</div>
+    <div class="opt-time">04/12 10:05</div>
+  </div>
+</div>
+

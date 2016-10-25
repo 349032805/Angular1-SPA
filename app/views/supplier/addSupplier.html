@@ -1,0 +1,98 @@
+<style type="text/css">
+  .supplier-form button{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+  .supplier-form label{
+    text-align: right;
+  }
+</style>
+
+<form class="form-group form-horizontal supplier-form" role="form">
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2">商户ID</label>
+    <div class="col-xs-4 col-md-4">S00001</div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;商户名称
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <input class="form-control" type="text" placeholder="商户名称" maxlength="30" autofocus>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;所属行业
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <!--<input class="form-control" type="text" placeholder="所属行业" maxlength="20">-->
+      <select class="form-control">
+        <option value="0">房地产</option>
+        <option>餐饮</option>
+        <option>222222</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;联系人
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <input class="form-control" type="text" placeholder="联系人" maxlength="10">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;联系方式
+    </label>
+    <div class="col-xs-4 col-md-4">
+      <input class="form-control" type="text" placeholder="联系方式" maxlength="20">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">
+      <span class="required">*</span>&nbsp;联系地址
+    </label>
+    <div class="col-xs-4 col-md-4">
+        <select class="form-control" style="width:150px;float:left;">
+        <option value="0">--省--</option>
+        <option>111111</option>
+        <option>222222</option>
+      </select>
+
+      <select class="form-control" style="width:150px;float:left;margin-left:20px;">
+        <option value="0">--市--</option>
+        <option>111111</option>
+        <option>222222</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-4 col-md-4 col-md-offset-2">
+      <input class="form-control" type="text" placeholder="详细地址" maxlength="50">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-xs-2 col-md-2 control-label">商户介绍</label>
+    <div class="col-xs-4 col-md-4">
+      <textarea class="form-control" rows="5" placeholder="商户介绍" maxlength="50"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group" style="margin-top:30px;">
+    <div style="padding-left:250px;">
+      <button type="button" class="btn btn-info">确定</button>
+      <button type="button" class="btn btn-info" style="background-color: #ccc;border-color: #ccc;margin-left:30px;">取消</button>
+    </div>
+  </div>
+
+ </form>

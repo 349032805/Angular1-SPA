@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>融易用</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
+    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap3-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="bower_components/ui-select/dist/select.css" />
+    <link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.css" />
+    <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.css" />
+    <link rel="stylesheet" href="bower_components/angular-backtop/dist/angular-backtop.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" type="text/css" href="styles/main.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/login.css"/>
+    <!-- endbuild -->
+  </head>
+  <body ng-app="fanyongadminApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+      <!-- <div ng-view=""></div> -->
+       <div ui-view=""></div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/AngularJS-Toaster/toaster.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+    <script src="bower_components/big.js/big.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap3-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bower_components/jquery-form/jquery.form.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ui-select/dist/select.js"></script>
+    <script src="bower_components/angular-notify/dist/angular-notify.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/pace/pace.js"></script>
+    <script src="bower_components/ng-table/dist/ng-table.js"></script>
+    <script src="bower_components/angular-backtop/dist/angular-backtop.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <script src="bower_components/moment/locale/zh-cn.js"></script>
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <!-- <script src="scripts/kitt.js"></script> -->
+        <!-- <script src="scripts/config/fanyong_auth.js"></script> -->
+         <!-- <script src="scripts/config/oauth2.js"></script> -->
+
+        <!-- 拦截器 -->
+        <script src="scripts/config/http_interceptor.js"></script>
+
+        <script src="scripts/config/session_service.js"></script>
+        <script src="scripts/config/session_injector.js"></script>
+
+        <script src="scripts/config/base_url.js"></script>
+
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/register.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/index.js"></script>
+
+        <script src="scripts/controllers/orderManage.js"></script>
+        <script src="scripts/controllers/orderHandle.js"></script>
+        <script src="scripts/controllers/orderDelivery.js"></script>
+
+        <script src="scripts/controllers/productInSale.js"></script>
+        <script src="scripts/controllers/productRelease.js"></script>
+
+        <script src="scripts/controllers/supplier.js"></script>
+
+        <script src="scripts/controllers/checkCredit.js"></script>
+        <script src="scripts/controllers/checkOrder.js"></script>
+
+        <script src="scripts/controllers/marketingPlatform.js"></script>
+        <script src="scripts/controllers/marketingProduct.js"></script>
+
+        <script src="scripts/controllers/messageSend.js"></script>
+        <script src="scripts/controllers/messageList.js"></script>
+
+        <script src="scripts/controllers/accountUser.js"></script>
+        <script src="scripts/controllers/accountAuth.js"></script>
+
+        <script src="scripts/controllers/productCategory.js"></script>
+        <script src="scripts/controllers/brand.js"></script>
+        <script src="scripts/controllers/productProperty.js"></script>
+        <script src="scripts/controllers/message.js"></script>
+        <script src="scripts/controllers/contract.js"></script>
+        <script src="scripts/controllers/other.js"></script>
+        <script src="scripts/controllers/dictionary.js"></script>
+
+        <script src="scripts/controllers/person.js"></script>
+
+        <script src="scripts/test.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

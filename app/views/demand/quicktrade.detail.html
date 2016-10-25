@@ -1,0 +1,64 @@
+<div class="clearfix">
+  <h3>客户快速找货详细</h3>
+
+  <div class="row">
+    <div class="col-md-6" style="line-height:50px;">
+      <div class="col-md-4">客户电话:</div>
+      <div class="col-md-8" style="color:#317ee6;">{{quickTrade.userphone}}</div>
+    </div>
+    <div class="col-md-6" style="line-height:50px;">
+      <div class="col-md-4">创建时间:</div>
+      <div class="col-md-4" style="color:#317ee6;">{{quickTrade.createtime}}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6" style="line-height:50px;">
+      <div class="col-md-4">客户申请:</div>
+      <div class="col-md-8" style="color:#317ee6;">{{quickTrade.content}}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <textarea class="form-control ng-pristine ng-untouched ng-valid ng-valid-maxlength" rows="4" style="width:500px;"
+              id="solvedremarks" name="solvedremarks" ng-model="quickTrade.solvedremarks" placeholder="您可以对处理方式进行说明。"
+              maxlength="200"></textarea>
+  </div>
+  <div>
+    <span id="solvedErrorInfo" style="color: #ff0000;"></span>
+  </div>
+
+  <div class="col-lg-offset-2 col-md-6" style="margin-top:30px;">
+    <div class="col-md-6">
+      <input type="button" class="btn btn-primary" value="已处理完成" ng-click="confirm(quickTrade.id)">
+    </div>
+    <div class="col-md-6">
+      <input type="button" class="btn btn-primary" value="返回" ng-click="back()">
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" id="solvedSuccessDialog" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="false">
+          &times;
+        </button>
+        <h4 class="modal-title">
+          处理成功提示
+        </h4>
+      </div>
+      <div class="modal-body" style="font-size: 16px;">
+        快速找货处理成功！
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="confirmSolveManualsellSuccessButton" onclick="javascript:window.history.go(-1);" class="btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

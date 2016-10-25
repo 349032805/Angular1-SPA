@@ -1,0 +1,476 @@
+
+<!--订单管理-->
+<style type="text/css">
+
+  .check-box{
+    width:100%;
+    height:154px;
+    background-color: white;
+  }
+
+  .check-condition{
+    margin-top:10px;
+    width:27%;
+    display: inline-block;
+  }
+
+  /*.check-condition>*{*/
+    /*display: inline-block;*/
+  /*}*/
+
+  .label-input >*{
+    display: inline-block;
+  }
+
+  .label-input{
+    float:right;
+    font-size: 14px;
+  }
+
+  .date-select{
+    width:192px;
+  }
+
+  .status-ban{
+    width:100%;
+    height:50px;
+    background-color: white;
+    margin-top:10px;
+    clear: both;
+    padding: 10px 20px;
+  }
+
+  .label-select{
+    float:left;
+  }
+
+  .export-btn{
+    height:30px;
+    padding:0 10px;
+    border:1px solid #ff5e5e;
+    border-radius: 4px;
+    background-color: white;
+    color:#ff5e5e;
+    float:right;
+    margin-right:30px;
+    margin-top:10px;
+  }
+
+  .table-ban{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: #e7e7e7;
+    clear: both;
+    font-weight: 500;
+    color:#5e5e5e;
+  }
+
+  .title-column{
+    float:left;
+    text-align: center;
+    border-right: 1px solid #cccccc;
+  }
+
+  .code-status{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    background-color: white;
+    padding-left:30px;
+    color:#999999;
+    border-right:1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+  }
+
+  .order-status{
+    float:right;
+    padding-right:30px;
+  }
+
+  .order-detail{
+    width:100%;
+    background-color: #F5FBFC;
+    height:110px;
+    font-size: 14px;
+    color:#5e5e5e;
+  }
+
+  .order-column{
+    float:left;
+    text-align: center;
+    border-right: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    /*padding:10px 20px;*/
+    height:110px;
+    padding-top:20px;
+    background-color: #F5FBFC;
+  }
+
+  .iphone-logo{
+    display: block;
+    float:left;
+  }
+
+  .product{
+    float:left;
+    margin-left:14px;
+  }
+  .num-box{
+    width:50px;
+    height:22px;
+    line-height: 22px;
+    text-align: center;
+    border:1px solid #adadad;
+    float:right;
+  }
+
+  .person-logo{
+    width:20px;
+    height:20px;
+    vertical-align: bottom;
+  }
+
+  /*分期支付浮层*/
+.period-pay{
+  width:400px;
+  height:270px;
+  z-index: 100;
+  border:1px solid #e7e7e7;
+  background-color: white;
+  position: absolute;
+  left:-120px;
+  top:100px;
+  text-align: left;
+  display: none;
+  margin-bottom: 30px;
+}
+
+  .modal-title{
+    text-align: center;
+    height:50px;
+    line-height: 50px;
+    border-bottom:1px solid #e7e7e7;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .close-icon{
+    position: absolute;
+    top:10px;
+    right:10px;
+    width:24px;
+    height:24px;
+    cursor: pointer;
+  }
+
+  .pay-title{
+    width:100%;
+    height:46px;
+    line-height: 46px;
+    border-bottom:1px solid #e7e7e7;
+  }
+
+  .pay-box{
+    float:left;
+  }
+
+  .pay-index{
+    color:#999;
+    padding-left:10px;
+  }
+
+  .index-detail{
+    margin-top:10px;
+    /*border-bottom:1px solid #e7e7e7;*/
+  }
+
+  .period-pay .row{
+    margin-bottom: 7px;
+  }
+
+</style>
+
+  <!--查询区域-->
+  <div class="check-box">
+    <form class="form-inline">
+      <div class="col-xs-12 col-md-12">
+        <div class="check-condition">
+          <div class="label-input">
+            <label class="control-label">订单ID:</label>
+            <input type="text" class="form-control" ng-model="xxx" placeholder="订单ID">
+          </div>
+        </div>
+
+        <div class="check-condition">
+          <div class="label-input">
+            <label class="control-label">商品名称:</label>
+            <input type="text" class="form-control" placeholder="商品名称">
+          </div>
+        </div>
+
+        <div class="check-condition">
+          <div class="label-input">
+            <label class="control-label">商户名称:</label>
+            <input type="text" class="form-control"  placeholder="商户名称">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-12">
+        <div class="check-condition">
+          <div class="label-input">
+            <label class="control-label">手机号:</label>
+            <input type="text" class="form-control"  placeholder="手机号">
+          </div>
+        </div>
+
+        <div class="check-condition" style="width:auto;vertical-align: top;margin-left:20px;">
+          <div class="label-input" style="float:left;">
+            <label class="control-label">提交时间:</label>
+            <div class="date-select" id="datetimepicker1">
+              <div class="input-group">
+                <input type="text" class="form-control" readonly id="startDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <span style="vertical-align: sub;">-</span>
+          <div class="label-input">
+            <div class="date-select" id="datetimepicker2">
+              <div class="input-group">
+                <input type="text" class="form-control" readonly id="endDate">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="check-condition" style="width:auto;vertical-align: super;margin-left:20px;">
+          <div class="label-input">
+            <label class="radio-inline">
+              <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 近一周
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option1"> 近一月
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-xs-12 col-md-12">
+        <div class="check-condition">
+          <div class="label-input">
+            <label class="control-label">推荐人:</label>
+            <input type="text" class="form-control"  placeholder="推荐人">
+          </div>
+        </div>
+
+        <div class="check-condition" style="width:auto;vertical-align: top;margin-left:20px;">
+          <div class="label-input" style="float:left;">
+            <label class="control-label">确认交易:</label>
+            <div class="date-select" id="datetimepicker3">
+              <div class="input-group">
+                <input type="text" class="form-control" readonly id="startDate2">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <span style="vertical-align: sub;">-</span>
+          <div class="label-input">
+            <div class="date-select" id="datetimepicker4">
+              <div class="input-group">
+                <input type="text" class="form-control" readonly id="endDate2">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="check-condition" style="width:auto;vertical-align: super;margin-left:20px;">
+          <div class="label-input">
+            <label class="radio-inline">
+              <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option1" checked> 近一周
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option1"> 近一月
+            </label>
+          </div>
+        </div>
+
+        <div class="check-condition" style="width:auto;margin-left:20px;vertical-align: top;">
+          <button type="button" class="btn btn-info" ng-click="search()">查询</button>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <!--表格区域-->
+  <div class="status-ban form-inline">
+    <div class="form-group label-select">
+        <label class="control-label">订单状态:</label>
+        <select class="form-control">
+          <option value="0">全部</option>
+          <option>111111</option>
+          <option>222222</option>
+        </select>
+    </div>
+
+    <!--<button type="button" class="export-btn">导出Excel</button>-->
+    <div class="pull-right">
+      <button type="button" class="btn btn-info">导出Excel</button>
+    </div>
+  </div>
+
+
+<!--div布局表格-->
+<!--table布局见orderHandle-->
+  <div class="table-ban">
+    <div class="title-column" style="width:48%;">商品名称</div>
+    <div class="title-column" style="width:13%;">客户/买家</div>
+    <div class="title-column" style="width:13%;">实付金额</div>
+    <div class="title-column" style="width:13%;">所属商户</div>
+    <div class="title-column" style="width:13%;">操作</div>
+  </div>
+
+ <div class="data-row">
+   <div class="code-status">
+     <div style="float:left;">
+       <input type="checkbox" value=""> <span style="margin-left:10px;">订单号:</span> <span>123456789123</span>
+       <span style="margin-left:20px;">2016/05/05 10:00</span>
+     </div>
+     <div class="order-status">待提交审核</div>
+   </div>
+
+   <div class="order-detail">
+     <div class="order-column" style="width:48%;text-align: left;padding-top:15px;padding-left:20px;">
+       <img src="/images/iphone.png" class="iphone-logo">
+       <div class="product">
+         <p>2016年新品发布 iPhoneSE 全网通，办理电信融合套餐0元购机</p>
+         <div>
+           <div style="color:#999999;float:left;">
+             已选 : <span>玫瑰金</span> &nbsp;&nbsp;<span>16G</span>
+           </div>
+           <div class="num-box">X &nbsp;1</div>
+         </div>
+       </div>
+     </div>
+     <div class="order-column" style="width:13%;">
+       <p>张三</p>
+       <p>18702121893</p>
+     </div>
+     <div class="order-column" style="width:13%;position: relative;">
+       <p>¥ 5999.00</p>
+       <p>共2件</p>
+       <p>分期支付&nbsp;
+         <i class="glyphicon glyphicon-chevron-down msg-arrow" style="font-weight: lighter;color:#ff5e5e;vertical-align: text-top;cursor: pointer;"></i>
+       </p>
+       <div class="period-pay">
+         <div class="modal-title">
+           <span>分期账单详情</span>
+           <img src="/images/close_icon.png" class="close-icon" data-dismiss="modal" aria-label="Close">
+         </div>
+         <div class="pay-title">
+             <div class="pay-box pay-index" style="width:25%;">付款明细</div>
+             <div class="pay-box" style="width:50%;">中国建设银行</div>
+             <div class="pay-box pay-index" style="width:25%;">银行代扣</div>
+         </div>
+
+         <div class="pay-title">
+           <div class="pay-box pay-index" style="width:25%;">商品信息</div>
+           <div class="pay-box">Iphone6S 全网通，办理电信融合套……</div>
+         </div>
+
+         <div class="index-detail">
+           <div class="row">
+              <div class="pay-box" style="width:41%;text-align: right;">总金额:</div>
+              <div class="pay-box" style="padding-left:120px;">¥ 11998.00</div>
+           </div>
+           <div class="row">
+             <div class="pay-box" style="width:41%;text-align: right;">首付金额:</div>
+             <div class="pay-box" style="padding-left:120px;">¥ 1998.00</div>
+           </div>
+           <div class="row">
+             <div class="pay-box" style="width:41%;text-align: right;">分期账单:</div>
+             <div class="pay-box" style="padding-left:120px;">¥ 1000.00 × 6</div>
+           </div>
+           <div class="row">
+             <div class="pay-box" style="width:41%;text-align: right;">(含服务费</div>
+             <div class="pay-box" style="padding-left:120px;">¥ 100.00)</div>
+           </div>
+         </div>
+
+       </div>
+     </div>
+     <div class="order-column" style="width:13%;">
+       <p>苹果官网旗舰店</p>
+       <p>（人民广场店）</p>
+       <p><img src="/images/person-logo.png" class="person-logo">&nbsp;李四（010101)</p>
+     </div>
+     <div class="order-column" style="width:13%;padding-top:30px;">
+       <div>
+         <a href="/#/deal/orderDetail" style="color:#ff5e5e;">查看订单</a>
+       </div>
+     </div>
+   </div>
+ </div>
+
+<div class="data-row">
+  <div class="code-status">
+    <div style="float:left;">
+      <input type="checkbox" value=""> <span style="margin-left:10px;">订单号:</span> <span>123456789123</span>
+      <span style="margin-left:20px;">2016/05/05 10:00</span>
+    </div>
+    <div class="order-status">待提交审核</div>
+  </div>
+
+  <div class="order-detail">
+    <div class="order-column" style="width:48%;text-align: left;padding-top:15px;padding-left:20px;">
+      <img src="/images/iphone.png" class="iphone-logo">
+      <div class="product">
+        <p>2016年新品发布 iPhoneSE 全网通，办理电信融合套餐0元购机</p>
+        <div>
+          <div style="color:#999999;float:left;">
+            已选 : <span>玫瑰金</span> &nbsp;&nbsp;<span>16G</span>
+          </div>
+          <div class="num-box">X &nbsp;1</div>
+        </div>
+      </div>
+    </div>
+    <div class="order-column" style="width:13%;">
+      <p>张三</p>
+      <p>18702121893</p>
+    </div>
+    <div class="order-column" style="width:13%;">
+      <p>¥ 5999.00</p>
+      <p>共2件</p>
+      <p>分期支付</p>
+    </div>
+    <div class="order-column" style="width:13%;">
+      <p>苹果官网旗舰店</p>
+      <p>（人民广场店）</p>
+      <p><img src="/images/person-logo.png" class="person-logo">&nbsp;李四（010101)</p>
+    </div>
+    <div class="order-column" style="width:13%;padding-top:30px;">
+      <p style="color:#5093e1;">打印合同</p>
+      <p style="color:#ff5e5e;">查看订单</p>
+    </div>
+  </div>
+</div>
+
+
+
