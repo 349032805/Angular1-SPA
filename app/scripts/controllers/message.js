@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('MessageCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '系统设置 > 消息设置';
 

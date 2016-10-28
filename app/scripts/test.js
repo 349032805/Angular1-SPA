@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('TestCtrl', function ($scope,$http,urlService) {
 	$scope.goPage = function ($event) {
         $scope.page = $event.target.getAttribute('data');

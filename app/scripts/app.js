@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name fanyongadminApp
+ * @name fantasyadminApp
  * @description
- * # fanyongadminApp
+ * # fantasyadminApp
  *
  * Main module of the application.
  */
 angular
-  .module('fanyongadminApp', [
+  .module('fantasyadminApp', [
     'ngResource',
     'ngRoute',
     'ui.router',

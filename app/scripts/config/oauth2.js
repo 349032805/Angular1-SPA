@@ -1,7 +1,7 @@
 // (function() {
 //   'use strict';
 //   angular
-//     .module('fanyongadminApp')
+//     .module('fantasyadminApp')
 //     .config(oauth2Config);
 
 //   function oauth2Config(OAuthProvider) {

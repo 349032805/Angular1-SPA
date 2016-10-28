@@ -1,6 +1,6 @@
   'use strict';
 
-  angular.module('fanyongadminApp').factory('httpInterceptor', [ '$q', '$injector',function($q, $injector) { 
+  angular.module('fantasyadminApp').factory('httpInterceptor', [ '$q', '$injector',function($q, $injector) { 
     var httpInterceptor = { 
       'responseError' : function(response) { 
         if (response.status === 401) { 
@@ -39,7 +39,7 @@
   }  
 ]);
 
-  angular.module('fanyongadminApp').config(['$httpProvider', function($httpProvider) {
+  angular.module('fantasyadminApp').config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('httpInterceptor');
 }]);
 

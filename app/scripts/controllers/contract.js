@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('ContractCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '系统设置 > 合同模板';
 

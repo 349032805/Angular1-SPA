@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('BrandCtrl', function ($scope,$rootScope,$state) {
     $rootScope.menuPath = '系统设置 > 品牌库管理';
 

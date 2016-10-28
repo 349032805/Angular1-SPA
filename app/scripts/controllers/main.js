@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('MainCtrl', function ($scope,$state,sessionService) {
 
   	   //子菜单点击变白色

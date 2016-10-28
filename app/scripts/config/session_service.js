@@ -1,6 +1,6 @@
   'use strict';
 
-   angular.module('fanyongadminApp').factory('sessionService', ['$q', '$injector',function($q, $injector) { 
+   angular.module('fantasyadminApp').factory('sessionService', ['$q', '$injector',function($q, $injector) { 
     var sessionService = {
         login:login,
         logout:logout,

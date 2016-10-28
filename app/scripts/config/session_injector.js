@@ -1,6 +1,6 @@
   'use strict';
 
-angular.module('fanyongadminApp').factory('sessionInjector', ['sessionService', function(sessionService) {
+angular.module('fantasyadminApp').factory('sessionInjector', ['sessionService', function(sessionService) {
     var sessionInjector = {
         request: function(config) {
             if (!sessionService.isAnonymus()) {
@@ -11,6 +11,6 @@ angular.module('fanyongadminApp').factory('sessionInjector', ['sessionService', 
     };
     return sessionInjector;
 }]);
-angular.module('fanyongadminApp').config(['$httpProvider', function($httpProvider) {
+angular.module('fantasyadminApp').config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('sessionInjector');
 }]);

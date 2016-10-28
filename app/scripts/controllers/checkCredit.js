@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('CheckCreditCtrl', function ($scope,$rootScope,$state) {
     $rootScope.menuPath = '审核管理 > 信用审核';
      //查看信用详情

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('ProductReleaseCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '商品管理 > 发布商品';
 

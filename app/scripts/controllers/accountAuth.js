@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('AccountAuthCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '账户管理 > 权限管理';
 

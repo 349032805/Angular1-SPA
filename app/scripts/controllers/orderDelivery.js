@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('OrderDeliveryCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '交易管理 > 订单发货';
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('CheckOrderCtrl', function ($scope,$rootScope,$state) {
      $rootScope.menuPath = '审核管理 > 订单审核';
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('ModifyPasswordCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '个人中心 > 修改密码';
 

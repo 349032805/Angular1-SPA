@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('OtherCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '系统设置 > 其他设置';
 

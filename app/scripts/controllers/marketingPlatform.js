@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('fanyongadminApp')
+angular.module('fantasyadminApp')
   .controller('MarketingPlatformCtrl', function ($scope,$rootScope) {
     $rootScope.menuPath = '营销推广 > 平台广告';
 
