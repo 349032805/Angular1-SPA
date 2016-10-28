@@ -1,9 +1,3 @@
-#fanyong_admin
-
-#author fanjun
-fanjun@financeyouth.cn,fanjun1231@163.com
-QQ:349032805
-
 something can improve,if you can
 
 1. 导航菜单
@@ -39,9 +33,6 @@ something can improve,if you can
 </ul>
 
 2.日期控件以及其他常规控件使用angular自带的组件编码
-
-3.angular的模式是在index.html生成所有要加载的样式和js文件,供所有页面调用.
- 如有兴趣,可以尝试使用requireJS按需加载,改变angular加载js文件的方式
 
 
 
