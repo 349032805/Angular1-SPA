@@ -11,7 +11,7 @@ grunt serve 启动
 打包 grunt build,将目录下的dist文件夹丢到服务器上.
 
 QQ:349032805
-博客:
+博客:http://blog.sina.com.cn/s/blog_6ae7fc750102wq7j.html
 
 
 附:mac安装node,bower,grunt,ruby,sass,compass
