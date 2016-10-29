@@ -20,18 +20,6 @@ something can improve,if you can
 
   <a href="#/home" ui-sref="home">Home</a> | <a href="#/about" ui-sref="about">About</a>
 
-<ul>
-    <li ng-repeat="contact in contacts">
-        <a href="#/contacts/1" ui-sref="contacts.detail({ id: contact.id })">Joe</a>
-    </li>
-    <li ng-repeat="contact in contacts">
-        <a href="#/contacts/2" ui-sref="contacts.detail({ id: contact.id })">Alice</a>
-    </li>
-    <li ng-repeat="contact in contacts">
-        <a href="#/contacts/3" ui-sref="contacts.detail({ id: contact.id })">Bob</a>
-    </li>
-</ul>
-
 2.日期控件以及其他常规控件使用angular自带的组件编码
 
 
