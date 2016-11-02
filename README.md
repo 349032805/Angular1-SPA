@@ -1,6 +1,8 @@
 # Angular1-SPA
 适用于前端初学者的demo, 更多请关注angular2
 
+Mac环境
+
 cd Admin-FrontEnd
 
 npm install
