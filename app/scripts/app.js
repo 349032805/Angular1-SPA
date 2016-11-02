@@ -11,7 +11,6 @@
 angular
   .module('fantasyadminApp', [
     'ngResource',
-    'ngRoute',
     'ui.router',
     'ui.bootstrap',
     'ngMessages'
