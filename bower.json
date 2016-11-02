@@ -24,7 +24,8 @@
     "angular-notify": "~2.5.0",
     "ngstorage": "~0.3.9",
     "query-string": "~2.4.0",
-    "ng-table": "~1.0.0"
+    "ng-table": "~1.0.0",
+    "angular-file-upload": "~1.1.6"
   },
   "appPath": "app",
   "moduleName": "fantasyadminApp",

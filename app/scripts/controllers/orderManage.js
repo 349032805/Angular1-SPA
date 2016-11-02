@@ -83,8 +83,12 @@ angular.module('fantasyadminApp')
 
   })
 
-  .controller('OrderDetailCtrl', function ($scope,$rootScope) {
+  .controller('OrderDetailCtrl', function ($scope,$rootScope,$location) {
     $rootScope.menuPath = '交易管理 > 订单管理 > 订单明细';
+    var id  = $location.search().id;
+    var orderId  = $location.search().orderId;
+    alert(id);
+    alert(orderId);
 
      //页面
       //$("#full_pay").show();

@@ -42,7 +42,7 @@ module.exports = function(config) {
       'bower_components/angular-notify/dist/angular-notify.js',
       'bower_components/ngstorage/ngStorage.js',
       'bower_components/ng-table/dist/ng-table.js',
-      'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-file-upload/angular-file-upload.min.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
