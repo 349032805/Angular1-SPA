@@ -1,6 +1,8 @@
 # Angular1-SPA
 适用于前端初学者的demo, 更多请关注angular2
 
+QQ:349032805
+
 Mac环境
 
 cd Admin-FrontEnd
@@ -14,10 +16,6 @@ grunt serve 启动
 访问:http://0.0.0.0:9000
 
 打包 grunt build,将目录下的dist文件夹丢到服务器上.
-
-QQ:349032805
-
-博客:http://blog.sina.com.cn/s/blog_6ae7fc750102wq7j.html
 
 
 附:mac安装node,bower,grunt,ruby,sass,compass
@@ -37,5 +35,3 @@ rvm install ruby-2.3.1
 gem install sass
 
 gem install compass
-
-博客:http://blog.sina.com.cn/s/blog_6ae7fc750102wpys.html
