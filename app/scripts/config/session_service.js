@@ -1,24 +1,17 @@
   'use strict';
 
-   angular.module('fantasyadminApp').factory('sessionService', ['$q', '$injector',function($q, $injector) { 
-    var sessionService = {
-        login:login,
-        logout:logout,
-        isAnonymus:isAnonymus,
-        getAccessToken:getAccessToken
-    };
-    return sessionService; 
+   angular.module('fantasyadminApp').service('sessionService',function() { 
 
-   function login(user,accessToken) {
+      this.login = function (user,accessToken){
           window.sessionStorage.setItem("user", user);
           window.sessionStorage.setItem("accessToken", accessToken);
       }
 
-    function logout() {
-      window.sessionStorage.clear();
+      this.logout = function() {
+        window.sessionStorage.clear();
     }
 
-    function isAnonymus() {
+    this.isAnonymus = function(){
       var accessToken = window.sessionStorage.getItem("accessToken");
       if(accessToken != null && accessToken !=""){
         return true;
@@ -27,11 +20,10 @@
       }
     }
 
-    function getAccessToken() {
+    this.getAccessToken = function(){
        var accessToken = window.sessionStorage.getItem("accessToken");
        return accessToken;
     }
 
   }  
-]);
-
+);

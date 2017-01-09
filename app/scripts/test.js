@@ -9,7 +9,7 @@ angular.module('fantasyadminApp')
 
      $http({
           method:'GET',
-          url:urlService.getBaseUrl()+'/api/v1/merchants/6'
+          url:urlService.baseUrl+'/api/v1/merchants/6'
           // params:'';
       }).then(function(resp){
       	console.log(resp.statusText);

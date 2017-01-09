@@ -1,21 +1,13 @@
   'use strict';
 
-  	//开发环境请求地址
-  	var baseUrl = "";
+   angular.module('fantasyadminApp').service('urlService',function() { 
+    
+    //开发环境请求地址
+    this.baseUrl = "";
+    // this.baseUrl = "http://192.168.132.102:8080";
 
-  	//生产环境请求地址
-  	// var baseUrl = "http://";
-
-   angular.module('fantasyadminApp').factory('urlService', ['$q', '$injector',function() { 
-    var urlService = {
-        getBaseUrl:getBaseUrl
-    };
-    return urlService; 
-
-   	function getBaseUrl() {
-   		return baseUrl;
-    }
+    //生产环境请求地址
+    //this.baseUrl = "http://";
 
   }  
-]);
-
+);
